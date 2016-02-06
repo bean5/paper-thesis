@@ -1,0 +1,12 @@
+build:
+  build: .
+  command: make project.pdf
+  working_dir: /main
+  volumes:
+    - './:/main'
+shell:
+  build: .
+  command: bash
+  working_dir: /main
+  volumes:
+    - './:/main'
