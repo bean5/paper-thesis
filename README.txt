@@ -1,6 +1,7 @@
 In an effort to save others from the pain and suffering that I have gone through to get the LaTeX and the BYU Thesis/Dissertations package to do what I wanted, I cleaned it up and made some changes. It tries to be a small, neat, clean tutorial (which I don't know how good of a job it does), but it provides all of the necessary details and a good structure to start from. The byustyle pacakge follows the model of the hyperref package (it has a few optional parameters and then a setup function to configure everything). I've tried to put comments around all of the commands to make it easier to make it do what you want but the general run down is this.
 
 use Instructions:
+0) If you have make docker installed, you can simply run `make`. If you don't have docker, but have LaTeX, you can run `project.pdf`.
 1) Just compile it the way it is and you'll get a thesis/dissertation that is in the format that BYU wants the final version to be.
 2) I compiled this template on the EE Unix/Linux boxes, the CS Linux boxes, and my own machine (MikTeX with Windows XP) and I included the .sty sheets needed for it to compile in all those settings. Ideally, you would get rid of them and have all those packages in your install of LaTeX and you'd keep them up to date, but they're there so that it can compile right out of the door for everyone.
 3) Since the Abstract and Acknowledgements need to be single spaced (and I couldn't figure out how to force it to skip even pages), you'll need to uncomment the \afterpage{\cleardoublepage} command in the abstract.tex and acknowledgements.tex files, if they are more than one page. If they're not then you'll need to be sure to have the singlepageabstract and/or singlepageacknowledgements options set to true, or else the top margin will not be correct.
@@ -46,6 +47,11 @@ Dave Johansen
 davejohansen@gmail.com
 
 ------------------
+2016 Feb 06
+Corrections:
+master.tex- 1-usepackage call of hyperref corrected to have driverfallback.
+
+------------------
 28 Nov 2007:
 Corrections by Kent Layton:
 
@@ -62,4 +68,3 @@ tolerances in the List of Figures to deal with long figure captions.
 abstract.tex- 1. Added a comment line at the end of the file.  This is
 necessary to cause a blank page with the \afterpage{clearpage} command if the
 abstract is only one paragraph but extends to a second page.
-
