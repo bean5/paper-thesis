@@ -6,18 +6,24 @@ build:
 	make simpleClean
 
 project.pdf: master.tex refs.bib
-	pdflatex master
-	pdflatex master
-	bibtex citations
-	bibtex citations
-	pdflatex master
-	pdflatex master
+	latex master
+	latex master
+	# pdflatex master
+	bibtex refs
+	bibtex refs
+	# pdflatex master
+	# pdflatex master
+
+	# http://tex.stackexchange.com/questions/21405/how-to-create-pdf-with-command-line-using-miktex
+	dvips -P pdf master.dvi
+	ps2pdf master.ps
+	# dvipdfm master.dvi
 	@echo "================================================"
 	@echo "All done! project.pdf has been created."
 	@echo "================================================"
 
 simpleClean:
-	rm -rf project.log project.blg project.bbl project.aux *.dvi *.log project.lof project.toc citations.log *~
+	rm -rf *.log *.blg *.bbl *.aux *.dvi *.lot *.lof *.toc *~
 
 clean:
 	make simpleClean
