@@ -1,0 +1,56 @@
+247 Patch Control
+
+0
+0
+1
+master.tex
+11
+7
+1
+
+
+
+
+
+
+master.tex
+TeX:UNIX
+135376890 0 0 1 16 66 88 116 1566 713 0 542 273 -1 -1 0 0 52 0 0 52 1 0 66 16   0
+abstract.tex
+TeX:UNIX
+269594619 0 -1 193 -1 193 88 116 723 577 0 22 52 -1 -1 0 0 400 -1 -1 400 1 0 193 -1   0
+acknowledgements.tex
+TeX:UNIX
+17936379 0 -1 221 -1 193 110 145 745 606 0 22 52 -1 -1 0 0 293 -1 -1 293 1 0 193 -1   0
+intro.tex
+TeX:UNIX
+1159163 0 -1 2014 -1 2497 66 87 745 438 0 254 732 -1 -1 0 0 22 -1 -1 22 1 0 2497 -1   0
+chapter2.tex
+TeX:UNIX
+1159163 0 -1 810 -1 989 0 0 635 461 0 398 511 -1 -1 0 0 47 -1 -1 47 1 0 989 -1   0
+appendixa.tex
+TeX:UNIX
+1159163 0 -1 922 -1 967 66 87 701 548 0 414 307 -1 -1 0 0 26 -1 -1 26 1 0 967 -1   0
+refs.bib
+BibTeX:UNIX
+1147890 0 191 1 190 1 132 174 767 635 0 22 647 -1 -1 0 0 23 0 0 23 1 0 1 190   0
+C:\Documents and Settings\David Johansen\My Documents\MAGICC_Lab\Papers\Thesis\abstract.tex
+TeX
+269496314 1 1 30 1 1 154 203 1632 800 0 22 18 -1 -1 0 0 -1 -1 -1 -1 1 0 1 1   0
+byustyle.sty
+TeX:DTX
+273690618 0 0 1 0 1 154 203 1632 800 0 22 -917 -1 -1 0 0 -1 -1 -1 -1 1 0 1 0   0
+C:\Documents and Settings\David Johansen\My Documents\MAGICC_Lab\Papers\Thesis\thesis.tex
+TeX
+269496314 0 0 1 0 1 44 58 1522 655 0 22 1 -1 -1 0 0 -1 -1 -1 -1 1 0 1 0   0
+xkeyval.sty
+TeX:DTX:UNIX
+273788923 0 -1 0 -1 0 22 29 657 490 0 22 1 -1 -1 0 0 2 -1 -1 2 1 0 0 -1   0
+
+*master.tex
+>
+*intro
+*chapter2
+*appendixa
+*refs.bib
+<
