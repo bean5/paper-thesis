@@ -1,4 +1,4 @@
-.PHONY: build
+.PHONY: build publish simpleClean clean
 
 build:
 	@-make clean
@@ -9,10 +9,8 @@ build:
 publish:
 	@echo "Copying to build folder."
 	cp build/master.pdf build/thesis-LDS_SCI_Recommender_Systems-Michael_Bean.pdf
-	@echo "Copying to word_etc folder. This will be public to professors!"
-	cp build/master.pdf word_etc/thesis-LDS_SCI_Recommender_Systems-Michael_Bean.pdf
 
-project.pdf: master.tex refs.bib
+master.pdf: master.tex refs.bib
 	# Makes images work, but biblio section is missing.
 	# Make sure to hit enter when errors appear...
 	pdflatex master
