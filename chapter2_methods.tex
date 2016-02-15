@@ -1,80 +1,43 @@
-\chapter{Sample Chapter 2} \label{chp:chapter2}
-This chapter shows how to use subfigure and make a table.
+\chapter{Methodology} \label{chp:chapter2}
 
-\section{Using the Subfigure package}
-Here's an example of referencing Figure~\ref{fig:overview2} or one
-of referencing Subfigure~\ref{subfig:overview2_c}
-and~\ref{subfig:overview2_d}.
+\section{Reproducibility}
+In order to be able to reproduce, share, and track work performed in the process of completing this thesis, I versioned code using git. I employed the use of both cutting edge tools as well as well-established ones. The result is code that is both highly capable and easy to follow. Ultimately, I aimed to make the code highly configurable, re-runable, measurable, and shareable.
 
-\begin{figure}[hhhhhtb]
-  \centering
-  \subfigure[First Plot]
-  {
-    \includegraphics[width=0.4\textwidth, bb = 0 0 150 150]{figures/chapter2/a.jpg}
-    \label{subfig:overview2_a}
-  } \quad
-  \subfigure[Second Plot]
-  {
-    \includegraphics[width=0.4\textwidth, bb = 0 0 150 150]{figures/chapter2/b.png}
-    \label{subfig:overview2_b}
-  } \\
-  \subfigure[Third Plot]
-  {
-    \includegraphics[width=0.4\textwidth, bb = 0 0 150 150]{figures/chapter2/c.png}
-    \label{subfig:overview2_c}
-  } \quad
-  \subfigure[Fourth Plot]
-  {
-    \includegraphics[width=0.4\textwidth, bb = 0 0 150 150]{figures/chapter2/d.png}
-    \label{subfig:overview2_d}
-  } \\
-  \caption[Cool Figure from Chapter 2 made with the subfigure package]{
-  This figure shows how to use PNGs and JPGs as a figure.
-  %
-  \subref{subfig:overview2_a} This is a groovy plot.
-  %
-  \subref{subfig:overview2_b} This ones cool too.
-  %
-  \subref{subfig:overview2_c} I don't like this one.
-  %
-  \subref{subfig:overview2_d} But this one is ok.}
-  \label{fig:overview2}
-\end{figure}
+In this section, methodology will be described, starting with code management \& organization, then tools used (programming languages, CLI tools, operating systems, libraries, databases), followed by models, algorithms \& metrics, concluding with metrics. In the following diagram, the steps (or modules) of the experiment are shown. Modules that are higher on the diagram are performed before lower ones. When modules are horizontally adjacent, they may be done in parallel. Note that further parallelization is possible, but not shown.
 
+\[TODO: Insert picture here `entire_process.png`--include caption, etc.\]
 
-\section{Making a table}
-Making a table in \LaTeX\ is a little like make one in HTML, but
-with some little quirks. An example is Table~\ref{tab:comparison}.
+\section{Code Management + Organization}
+For an experiment to be robust, it is important that it can be replicated and compared. One of the best ways to allow for this is to make the code both configurable and sharable. Thus, this section is included.
 
-You make a table is by starting a table environment with a caption
-and label (You can specify the text that shows up in the Table of
-Contents using the optional parameter box, [], that's at the
-beginning of the $\backslash$caption command. You tell the table how
-many columns in the beginning of the tabular environment using a
-command like this |l|c|r|. That would create a table with 3 columns
-that are left-aligned, centered and right-aligned, in that order. So
-you can do just about anything you want. The |'s tell \LaTeX\ that
-you want bars separating the columns. You can also add horizontal
-lines using the $\backslash$hline command. Oh ya, and I told it to
-center using the $\backslash$centering command.
+I versioned the experiment’s code in a git project along with data during the gathering process. Whenever a step completes, it outputs data which can be used as input to other modules. The code is modularized such that each docker target corresponds with a module shown previously. The docker daemon builds each target open request (as directed by make), and using docker-compose, directories are connected to the image as volumes. This allows the image to be both modular and systematic. Each docker target has a corresponding file called Dockerfile. Each Dockerfile instructs the docker daemon to obtain requisite packages, e.g. nodeJS, for the module to run the code specific to it. When the code is complete, the docker container terminates, and the next may run when Make instructs it to do so.
 
+Viewing each docker container as a module lends to be seen as a part of the algorithm. Naturally, to each container I map an input and output folder, both located at the root of the file system. The output of multiple containers can be combined as input to subsequent ones, which was sometimes the case here. The first module’s input was actually the database graciously provided by Dr. Steven Liddle, containing pre-downloaded documents to jump-start the project.
 
-\begin{table}[hhhhtbp]
-\centering
-\caption[Example Table]{Description of the table}
-\label{tab:comparison}
-%
-\begin{tabular}{|l|c|c|r|}
-\hline
+I named each docker target logically so upon querying the docker daemon for the list of images, each image would be easy to re-run:
 
-Table Name  & Column 2 & Column 3   & Column 4 \\
-\hline
-First Row   & 4780286  & 72.941376  & A \\
-Second Row  & 4069335  & 62.093124  & B \\
-Third Row   & 4074900  & 62.178040  & C \\
-\hline
-Fourth Row  & 4000000  & 60.000000  & Z \\
-\hline
+\begin{enumerate}
+  \item obtain\_data
+  \item compute\_tf\_idf\_recommendations
+  \item compute\_lda\_recommendations
+  \item etc.
+\end{enumerate}
 
-\end{tabular}
-\end{table}
+\subsection{Tools, Libraries, OS, Database}
+I used various tools in the process of carrying for the preparation and execution of this thesis’ experiment. Table A.1 in the appendix details what they are and what they were used to do.
+
+Core to this project was the use docker. Choosing to use docker forced me to code in all dependencies of each module either as code in the module, or as packages to be installed to each individual docker container during the docker build process. Indeed, the docker daemon builds containers by following instructions given in the files called Dockerfile. This makes each step of the experiment self-documenting. Another benefit of this is that it makes the code cloud-deployable, making it possible to easily offload work to the cloud when appropriate. Offloading to the cloud was not necessary here since I had sufficient computing resources for the project already purchased.
+
+\subsection{Models, Algorithms \& Metrics}
+Choice of algorithm \& metrics go hand-in-hand. In fact, algorithm and data can often influence each other, further influencing the selection of metrics. For example, if I were to have a gold standard or baseline of recommendation engines for the 5000+ documents used in this project, I would be able to use nDCG as a metric. Since I do not have such a baseline, such a metric cannot be used. Per xyz, I use catalog coverage, allowing the comparison of two non-baseline algorithms.
+
+Choosing the algorithms for this project was not difficult. I selected TF-IDF+kNN and LDA+kNN as my main topic-modeling algorithms. TF-IDF is straight-forward to understand and code. LDA is more difficult to code and is actually a topic model. Luckily, open source projects exist where an algorithm is already provided, which I quickly opted to use.
+
+Given that I had prior experience using Gibbs Sampling to generate LDA models (\[TODO: Cite here.\]) using the open source mallet toolkit (\[TODO: cite here\]), the choice to select that was logistical (optimizing to let me have time to spend on other areas of this work). EM lends itself to parallelization, but on my dataset, I knew that Gibbs Sampling would only take about 10 minutes to run, which is not an issue. The cost-benefit of changing algorithms was too high, at least when it comes to building the LDA model via parallelized algorithm. In my case, I used the mallet toolbox (\[TODO: cite in introduction\]) which provides the Gibbs Sampling algorithm to estimate the LDA model.
+
+% TODO: cite instead of link?
+The core of this project came down to organization, good testing (to ensure bug-free code), and study of any tools that would end up being helpful in processing. kNN is a machine learning algorithm which as input requires the value for k and a selection of a distance metric. The output of TF-IDF and LDA are both in vectors, but LDA’s vectors lay within the probability simplex. Distance metrics had to be appropriate for the space. For TF-IDF vectors, I opted to use cosine similarity; for LDA, Jensen-Shannon (\url{https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence, http://maroo.cs.umass.edu/pub/web/getpdf.php?id=1101}). % TODO: (or was it Hellinger? \url{https://www.quora.com/How-can-I-compute-the-Hellinger-distance-between-documents-based-on-topic-proportions-generated-by-Latent-Dirichlet-Allocation}).
+
+To evaluate the recommendations provided as output from the ordered kNN results, a common metric had to be employed. I chose to measure the goodness of each set using the catalog coverage metric. % TODO: remove passive voice here.
+
+For reproducibility, the following table shows the values, settings, and configurations selected for the algorithms.
