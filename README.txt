@@ -1,3 +1,12 @@
+This is my thesis (attempt 1--being deprecated)
+========================
+This is based on an EE template provided at http://www.ee.byu.edu/grad/latex/
+
+Do not delete it, please. I don't have a brave little toaster to rescue it for me.
+
+
+Commencing Start of Template
+========================
 In an effort to save others from the pain and suffering that I have gone through to get the LaTeX and the BYU Thesis/Dissertations package to do what I wanted, I cleaned it up and made some changes. It tries to be a small, neat, clean tutorial (which I don't know how good of a job it does), but it provides all of the necessary details and a good structure to start from. The byustyle pacakge follows the model of the hyperref package (it has a few optional parameters and then a setup function to configure everything). I've tried to put comments around all of the commands to make it easier to make it do what you want but the general run down is this.
 
 use Instructions:
@@ -37,7 +46,7 @@ Printing Tips:
         @ A4size 594.99bp 841.99bp
         @+ ! %%DocumentPaperSizes: a4
         @+ %%PaperSize: A4
-	
+
 
 To do:
 For anyone that feels like playing around with this or who is a LaTeX master, I tried to get all of the \showBYUHeader stuff in \AtBeginDocument but I couldn't get it to work. It would be nice if someone could figure out how to do that, because then the header include would just be automatic from using the package.
