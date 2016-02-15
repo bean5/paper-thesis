@@ -1,79 +1,87 @@
 \chapter{Introduction}
-This is an example of the introduction. It's pretty simple and shows off
-some of the basic commands.
+It is difficult to pin down the actual rate. BBC says ``Some say that about 90\% of all the data in the world today has been created in the past few years...According to computer giant IBM, 2.5 exabytes - that's 2.5 billion gigabytes (GB) - of data was generated every day in 2012. That's big by anyone's standards. ‘About 75\% of data is unstructured, coming from sources such as text, voice and video,’ says Mr Miles.'' I worked for a while at a company that stores backups of data. The amount of data they were storing reached 20 PB!
 
-\section{First Section}
-This part shows how you can divide things into sections.
+With so much digital data, much of which is unstructured, it becomes necessary to assist users of data to sift through and learn from data leveraging computers to perform some of the tasks. One way to expose data is to allow users to search via query. Another way is by recommendation. In this thesis, I compare two recommendation systems and systematically select the best for use on the (unstructured) textual data I have, in preparation for potential enhancements to the website \url{http://scriptures.byu.edu} (hereafter, LDS Scripture Citation Index, or simply LDS SCI).
+Before proceeding, I will preface that I endeavor to provide URL hyperlinks whenever possible so the reader can easily replicate this work, which seems fitting since this work aims to enhance the web community.
 
-\subsection{First Subsection}
-Also into subsections.
+\section{About LDS Scripture Citation Index (SCI)}
+LDS SCI is available both on the web and on mobile devices. All forms have a search feature which utilizes a Lucene \cite{xyz} back-end search which employs a TF-IDF algorithm for ranking search matches for any query. Since the data made accessible by LDS SCI is indexed and cataloged, it has some metadata which can be used as criteria in the filter, such as year, speaker or venue (e.g. General Conference).
 
-\subsubsection{First Subsubsection}
-And even Subsubsections but they don't work correctly with Chapters and so I
-would recommend against using them.
+\[TODO: Insert picture here sci_search.png--include caption, etc.\]
 
-\subsection{Second Subsection}
-Which really helps organization and automatically gets added to the Table
-of Contents and gets linked to by the hyperref package.
+Providing search capabilities is just one way LDS SCI exposes their index. The area where LDS SCI really shines is by its use of indexing. While an LDS discourse often has references placed in-line or at the end of the text, the reverse is not the case; LDS scriptures, including the ones found online at \url{https://www.lds.org/scriptures/}, have only footnotes. LDS SCI has copies of LDS discourses and scriptures, indexes the references, then exposes that index in a searchable way. This allows users to reach discourses from scriptures (LDS.org does the reverse). While LDS.org provides discourse-based study or scripture-only study, LDS SCI allows for an enhanced scripture-based study, starting at chapters of scripture leading to LDS discourses for potential clarification.
 
-\section{Citation Example}
-One of the coolest part about \LaTeX\ is BibTeX. You can just call
-the $\backslash$cite command and it will do all of the bibliography
-stuff for you as long as there is an entry in the refs.bib file.
-Here's an example of citing previous works
-\cite{SomeSweetBook06,SomeSweetArticle06}.
+LDS SCI is similar to LDS.org in that users can use them to read both scriptures and discourses. However, LDS SCI exposes discourses pre-dating 1971, including those published in the Journal of Discourses in the 1800’s while LDS.org focuses on those published after 1971. [Related to LDS SCI is a geographical version of scriptures \url{http://scriptures.byu.edu/mapscrip/} where users can read scriptures (Biblical and non-biblical) and see a Google Earth view of the related area(s).]
 
-\section{Math and Equation Example}
-Here's how to use inline math mode to define lambda like this,
-$\lambda$, and how to declare Equations~\eqref{eqn:definition_Ix}
-and~\eqref{eqn:definition_Iy}
+\section{Motivation}
+While the LDS SCI is helpful for the aspiring erudite (of LDS content), there is currently no recommendation system for the discourses: when a user finds an interesting discourse, there is no simple way to find similar/related discourse. Although the LDS website has some modern General Conference (GC) discourses tagged with topics, such topics are currently provided on a per-year basis only, so the discourses tagged with each topic tend to be sparse. This works when members of the LDS church want to focus on the most recent discourses only. Even with URL manipulation, an attempt to expose topics for all GC discourses rather than by year does not work (\url{https://www.lds.org/general-conference/topics/2015/10} vs. \url{https://www.lds.org/general-conference/topics/})--it results in the topic index for the most recent session of GC. Sparseness for the discourses in a given topic are apparent in the image--most topics only have 1 associated discourse and therefore have no number next to the topic’s title:
 
-\begin{equation} \label{eqn:definition_Ix}
-I_x(x,y) = \pd{I(x,y)}{x},
-\end{equation}
+\[TODO: Insert picture here `oct_2015_topics.png`--include caption, etc.\]
 
-\begin{equation}\label{eqn:definition_Iy}
-I_y(x,y) = \pd{I(x,y)}{y}.
-\end{equation}
+Therefore, for users of LDS.org, when a reader enjoys a particular discourse, it is difficult to locate all discourses on a given topic. It is theoretically possible to peruse every session of GC (as far back as 1971) looking for the topic for every year. The task requires a lot of clicking and will not work for discourses published before 1971 since they are not exposed online at LDS.org.
 
-If you don't want equation numbers, use
-\[
-\text{sign}(x) = \begin{cases}
-                 1,  &\quad x> 0 \\
-                 -1, &\quad x<0 \\
-                 0,  &\quad \text{otherwise}
-                 \end{cases}.
-\]
+Beyond the per-year topic index provided by LDS.org, LDS.org does have a Gospel Topics index at \url{https://www.lds.org/topics/}. Under some topics, there are discourses that are selected for the topic, but they don’t promise to be results of a recommendation system--and expanding the lists to see more is not possible.
 
+LDS SCI has discourses by topic, but was manually created and only accounts for discourses in the Journal of Discourses, which were published in the 1800’s. For those interested, digital images of the Journal of Discourses is available from the BYU online collections at \url{http://contentdm.lib.byu.edu/cdm/search/collection/JournalOfDiscourses3}.
 
- Or you can create equation arrays like
-\begin{align}
-  \alpha &= \beta^\gamma \notag \\
-  x &= \frac{1}{\alpha} \label{eq:cool_1} \\
-  y &= \sqrt{\abs{\frac{\gamma}{\beta}}} \notag \\
-  \zeta &= x^y \label{eq:cool_2}.
-\end{align}
+To review, LDS.org has 2 topic indexes, one of which focuses on a per-year approach for post-1971 GC talks, the other of which appears to have been manually created. LDS SCI has a topic index, but only for very early discourses. For a superficial study of a topic, this might be sufficient, but when one wants to reach farther than the most recent or least LDS materials--namely those in the middle--there is no search engine--and none which promises to be automatic, automatically updated, and interactive.
 
+In the past 2 years, the query engine provided by both LDS.org and LDS SCI have been enhanced significantly, but they still leave something to be desired: simplicity and ease of use. Dr. Liddle who built LDS SCI has said that LDS SCI uses a Lucene query engine, which employs a TF-IDF search algorithm. The LDS.org engine seems to work similarly, except that it can detect phrases such as ``in talks'' and use those to automatically select to search only through discourses rather than through all LDS written materials exposed online. [...more on how LDS SCI search engine works...]
 
-The lines in the array can be referenced by saying things like: In
-Eq.~\eqref{eq:cool_1} we show a cool equation, but its not nearly as
-cool as Eq.~\eqref{eq:cool_2}.
+Take for example the search query ``word of wisdom'' (without quotes in the search). This is a phrase which is more recent history of the LDS church has come to refer to a law of health. The search results look promising:
 
-\section{Fixed Width Figure Example} \label{sec:intro_figure_example}
-This part also shows how to include a basic figure like the one
-shown in Figure~\ref{fig:intro_stuff}
+\[TODO: Insert picture here `sci_results.png`--include caption, etc.\]
 
-\begin{figure}[hhhhhtb]
-  \centering
-  \includegraphics[width=5.5in,natwidth=610,natheight=642]{figures/intro/stuff.jpg}
-  \caption[Example Fixed Width Figure]{
-This figure is just a simple figure with a width set at 5.5in. An example of a
-figure whose size depends on the width of the page is given in
-Figure \ref{fig:appendix_some_pic} in Section \ref{sec:appendxia_figure_example}}
-%
-  \label{fig:intro_stuff}
-\end{figure}
+But one would expect to see something by Joseph Smith Jr. to rank at the top. The confounding factor here is that ``word of wisdom'' is a modern naming convention. % TODO: Fact check this!
+The word of wisdom was ``[r]evelation given through Joseph Smith the Prophet, at Kirtland, Ohio, February 27, 1833.'' (D\&C 89 Header). The earliest usage of the phrase ``word of wisdom'' in print we could find is 1873--40 years after it was revealed. (The Word of Wisdom—Education by President George A. Smith).
 
-\section{All Done}
-You know have seen a lot of the basics and now you can see some
-other fancy stuff in Chapter~\ref{chp:chapter2}.
+Unfortunately, without a way to determine what topics exist within all the LDS discourses, there is no way for a query system to expand queries like this one. Unfortunately, even if the user does happen to find a discourse that is a pleasing match to the query, there is currently no recommendation system from that point to suggest other related discourses--just existing links and the other results for the query.
+
+If the user were to filter to only scriptures, they would find more than 20k matches:
+
+\[TODO: Insert picture here `sci_results_20k.png`--include caption, etc.\]
+
+Of those, the first one that refers to directly to a law of health is the 4th result. LDS.org, when performing the same search ranks the result referring to the law of health as the 4th result (\url{https://www.lds.org/scriptures/search?type=verse&query=word+of+wisdom}), but does so with only 39 total results. These are results that I was able to find because I understood how the search engine works. When one doesn’t know when to put quotes or doesn’t know what they are looking for, the task is more difficult, depending on the engine used. For example, when the entire query is run with quotes around it in LDS SCI, the number of results drops from the 20k down to 7 in LDS SCI and in LDS.org down from 39 to 8 in LDS.org (\url{https://www.lds.org/scriptures/search?type=verse&query="word+of+wisdom"}). [Search relevance is an entire area of research and it is no wonder that companies that are able to do well in this area are able to profit from it (e.g. Microsoft with \url{https://bing.com} and Google with \url{https://google.com}).]
+
+While search query optimization would be one way to improve this area, I chose to augment the LDS SCI toolset with recommendation features. The idea was that once a reader locates a discourse of interest, it would be helpful to provide a list of similar discourses as a list. The list could default to displaying 5, but the user could interact with the result and request additional results. There are many ways to approach this that I will explain.
+
+\section{Recommender Systems}
+\% TODO: Before referencing LDA, describe it or use longer name.
+Recommender systems, sometimes called recommendation systems, vary in the way that they are created. For this work, two possible systems stood out immediately for my use: LDA-based recommendation and TF-IDF based recommendation. The latter is straightforward, easy to implement, and uses the same metrics that the query search at LDS SCI uses. The LDA-based model brings additional features to the table, but does so indirectly. Every LDA is a distribution over distributions. In my case, for the model to be built, each word token is assigned to a 1 and only 1 topic. This can easily be collected and indexed, then exposed as a keyword frequency index for each topic. So on top of providing per-discourse recommendations, it could easily be used to create an index of topics, linkable to the documents with a large clustering of words in each topic! Since that was not a main focus in my work, I published the results of that at \url{http://bean5.github.io/lds-talks-by-topic/} for future use. The downside to LDA is that it is only a model. An algorithm to building the LDA model must be selected. Some algorithms include:
+
+\begin{enumerate}
+  \item Gibbs Sampling, a Markov chain Monte Carlo algorithm
+  \item Variational Inference; and
+  \item Expectation Maximization
+\end{enumerate}
+
+The LDA and TF-IDF model share some similarities besides lending themselves as models for recommender algorithms. They treat each document as a bag of words. They can both be told to ignore common words, although the nature of TF-IDF is such that high frequency words are not as noisy or problematic as they are for LDA models.
+
+...
+
+Running a Gibbs Sampler long enough is guaranteed to converge to what is called the posterior. A good initialization makes it converge sooner, but in previous work, we found that 1000 iterations of Gibbs converged well to a good set of topics (see elsewhere; \url{https://youtu.be/UTW530-QVxo?t=1189}).
+
+\section{Algorithms}
+\begin{enumerate}
+  \item k-NN
+  \item ...
+\end{enumerate}
+
+\section{Metrics}
+\begin{enumerate}
+  \item k-NN metrics
+  \item Jenson-Shannon
+  \item Hellinger distance (Jenson-Shannon reduced for parallelization in k-NN; produces same results as Jenson-Shannon when used in k-NN)
+\end{enumerate}
+
+\section{Problems}
+\[TODO: Complete this section.\]
+
+\section{Open Source Tools: Docker, Mallet, npm}
+Core to this project is the use of docker. Dockers are Linux containers which the docker-engine (i.e. docker daemon) can build and run. They can be thought of as Linux virtual machines in some ways, although they tend to be resource/hardware agnostic since they simply share the kernel, RAM, and other hardware on the host on which they are run. They are considered lightweight since instead of running the full Linux stack for each container, only necessary files are run from within the container. This has made it easy for a new market to emerge where products that are software as a service (SaaS) can be hosted at a lower cost. Container Engine by Google (\url{https://cloud.google.com/container-engine/}) and tutum but Tutum (\url{https://www.tutum.co/}) are examples of this.
+
+\% TODO: Cite quote instead of linking
+Docker has a growing community around it. In fact, Google has created an open source project called Kubernetes which aims to ``accelerate Dev and simplify Ops'' (\url{https://kubernetes.io/}). It is used under the covers for Container Engine, a Google cloud product. Although Linux containers have been around for some time now, the docker community has made it much more mainstream, especially for computing environments where scaling horizontally is important. Thus, companies such as Netflix, EMC find it highly beneficial. In my experience, Linux tools with growing communities are well backed, become robust, and tend to be both easy to use as well as empowering.
+Docker has quickly become that, as evidenced by its use in this experiment. \% TODO: Move to methodology section.
+
+\[TODO: Add more here.\]
