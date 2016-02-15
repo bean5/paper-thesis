@@ -38,7 +38,7 @@
 
 % Commands for getting if the name of the paper and degree
 \newcommand{\@papername}{\ifBYUs@formatting@isdissertation dissertation \else thesis \fi}
-\newcommand{\@degreename}{\ifBYUs@formatting@isdissertation Doctor of Philosophy \else Master of Science \fi}
+\newcommand{\@degreename}{\ifBYUs@formatting@isdissertation Doctor of Philosophy \else Master of Arts \fi}
 
 % For controlling which sections are shown
 \define@boolkeys[BYUs]{sections}{noabstract,nocopyright,nouniversitypages,noacknowledgements,notableofcontents,nolistoffigures,nolistoftables,notocandlists}[false]
@@ -102,7 +102,7 @@
 \marginparsep 10pt
 
 %redefining \cleardoublepage so that it treats it like its two sided, even though it's not
- \def\cleardoublepage{\clearpage\ifodd\c@page\else \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi} 
+ \def\cleardoublepage{\clearpage\ifodd\c@page\else \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi}
 
 % Making it so that it doesn't like to hyphenate words
 \brokenpenalty=1000
@@ -169,8 +169,8 @@
    All Rights Reserved
      \end{center}
 
-% The beginning of the document needs to be single sided if it isn't an etd submission, so force it to be so 
-	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi   
+% The beginning of the document needs to be single sided if it isn't an etd submission, so force it to be so
+	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi
 	%\cleardoublepage
 }
 
@@ -236,7 +236,7 @@
   \fi
   % The beginning of the document needs to be single sided, so force it to be so
  %\cleardoublepage
- \ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi   
+ \ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi
 }
 
 
@@ -285,7 +285,7 @@
   \hfill\@signature{\cmdBYUs@names@collegedean\\Dean, \cmdBYUs@names@collegename}
   % The beginning of the document needs to be single sided, so force it to be so
  %\cleardoublepage
- \ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi   
+ \ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi
 }
 
 
@@ -313,14 +313,14 @@
   % Start a new line, so that it will indent the abstract
   \par
   % Include the abstract.tex file
-  \ifBYUs@formatting@etdsubmission  \else \afterpage{\cleardoublepage} \fi   
+  \ifBYUs@formatting@etdsubmission  \else \afterpage{\cleardoublepage} \fi
   \input{abstract}
     \par\mbox{ }
     \vfill
     \noindent Keywords: \cmdBYUs@names@keywords
         \setlength{\parskip}{0\baselineskip}
  % \cleardoublepage
- \ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi   
+ \ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi
 }
 
 % Acknowledgments page
@@ -335,7 +335,7 @@
 	 	\afterpage{\clearpage}
 	 \else
 	 	\afterpage{\cleardoublepage}
-	 \fi   
+	 \fi
     %\afterpage{\cleardoublepage}
     ACKNOWLEDGMENTS\\[45pt]
   \end{center}
@@ -343,17 +343,17 @@
   % Start a new line, so that it will indent the abstract
   \par
   % Include the acknowledgements.tex file
-  \ifBYUs@formatting@etdsubmission  \else \afterpage{\cleardoublepage} \fi   
+  \ifBYUs@formatting@etdsubmission  \else \afterpage{\cleardoublepage} \fi
   \input{acknowledgements}
   \ifBYUs@formatting@singlepageacknowledgements
     % The beginning of the document needs to be single sided, so force it to be so
-	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi   
+	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi
     %\cleardoublepage
   \else
     % Turn the page back to the 1 inch top margin like we had before
     \changepage{1in}{0in}{0in}{0in}{0in}{-1in}{0in}{0in}{0in}
     % The beginning of the document needs to be single sided, so force it to be so
-	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi   
+	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi
     %\cleardoublepage
     % Turn the page back to the 1 inch top margin like we had before
     \changepage{-1in}{0in}{0in}{0in}{0in}{1in}{0in}{0in}{0in}
@@ -406,7 +406,7 @@
 % Chapter command for use in the thesis/dissertation
 \renewcommand{\chapter}{
   % Make it so that chapter's will always start on odd pages
-	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi   
+	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi
   %\cleardoublepage
   % Tell it that it needs to indent after this is done
   \@afterindenttrue
@@ -439,7 +439,7 @@
   % The parameters of \@startsection are {NAME}{LEVEL}{INDENT}{BEFORESKIP}{AFTERSKIP}{STYLE}
   \@startsection{subsubsection}{3}{\z@}{
     3ex plus 1ex minus .2ex}{
-    1.3ex plus .2ex}{ 
+    1.3ex plus .2ex}{
     \normalsize\bf}
 }
 
@@ -449,7 +449,7 @@
 
 \renewcommand{\appendix}{
   % Make sure that the appendix starts on an odd page
-	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi   
+	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi
   %\cleardoublepage
   % Tell LaTeX that it needs to indent after this is done
   \@afterindenttrue
@@ -523,7 +523,7 @@
       \tableofcontents
 	  % inserts new page and makes sure next chapter starts on odd and required for phantomsection below
 	 %\cleardoublepage
-	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi   
+	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi
     \fi
     \ifBYUs@sections@nolistoftables
     \else
@@ -532,7 +532,7 @@
       \addcontentsline{toc}{chapter}{List of Tables}
       \listoftables
 	  % inserts new page and makes sure next chapter starts on odd
-		\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi   
+		\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi
 	  %\cleardoublepage
       %\newpage
     \fi
@@ -549,7 +549,7 @@
     % Reset the parskip
     \setlength{\parskip}{0\baselineskip}
     % The beginning of the document needs to be single sided, so force it to be so
-	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi   
+	\ifBYUs@formatting@etdsubmission \clearpage \else \cleardoublepage \fi
     %\cleardoublepage
   \fi
 

@@ -1,3 +1,594 @@
+% Author: Michael Bean
+% The order of the following entries is irrelevant. They will be sorted according to the
+% bibliography style used.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%@string{jgr = "J.~Geophys.~Res."}
+
+@article{hilton-2008-intertext-abinadi,
+	AUTHOR = {Hilton III, John},
+	YEAR = {2008},
+	TITLE = {Textual Similarities in the Words of Abinadi and Alma’s Counsel to Corianton},
+	URL = {http://www.johnhiltoniii.com/wp-content/uploads/2008/10/51.2-HiltonIII-Textual-Similarities.pdf}
+}
+
+@article{hilton_2008_intertext_psalms,
+	AUTHOR = {Hilton III, John},
+	YEAR = {2008},
+	TITLE = {Old Testament Psalms in the Book of Mormon},
+	URL = {http://www.johnhiltoniii.com/wp-content/uploads/2013/10/Hilton-Old-Testament-Psalms-in-the-Book-of-Mormon-Final.pdf}
+}
+
+@online{github-bean5-porter7,
+	AUTHOR = {C.J. van Rijsbergen and S.E. Robertson and M.F. Porter},
+	TITLE = {Java 7 Port of Porter Stemmer},
+	Month = oct,
+	Year = {2013},
+	NOTE = "[online; Accessed on 2013-10-24; Ported by Michael Bean]",
+	URL = {https://github.com/~bean5/Java-Porter-Stemmer}
+}
+
+% TODO: correct month of the data for COCA/COHA, etc.
+@online{coca,
+	AUTHOR = {Davies, Mark},
+	TITLE = {The Corpus of Contemporary American English: 450 million words, 1990-present.},
+	Month = oct,
+	Year = {2008-},
+	NOTE = "[online; Accessed on 2013-10-24]",
+	URL = {http://corpus.byu.edu/coca/}
+}
+
+@online{coha,
+	AUTHOR = {Davies, Mark},
+	TITLE = {The Corpus of Historical American English: 400 million words, 1810-2009. },
+	Month = oct,
+	Year = {2010-},
+	NOTE = "[online; Accessed on 2013-10-24]",
+	URL = {http://corpus.byu.edu/coha/}
+}
+
+@online{BYU-BNC,
+	AUTHOR = {Davies, Mark},
+	TITLE = {BYU-BNC. (Based on the British National Corpus from Oxford University Press). },
+	Month = oct,
+	Year = {2004-},
+	NOTE = "[online; Accessed on 2013-10-24]",
+	URL = {http://corpus.byu.edu/bnc/}
+}
+
+@online{glowbe,
+	AUTHOR = {Davies, Mark},
+	TITLE = {Corpus of Global Web-Based English: 1.9 billion words from speakers in 20 countries.},
+	Month = oct,
+	Year = {2013},
+	NOTE = "[online; Accessed on 2013-10-24]",
+	URL = {http://corpus2.byu.edu/glowbe/}
+}
+
+
+@online{sci,
+	AUTHOR = {Liddle, Stephen},
+	TITLE = {LDS Scripture Citation Index},
+	Month = oct,
+	Year = {2013},
+	NOTE = "[online; Accessed on 2013-10-24]",
+	URL = {http://scriptures.byu.edu/}
+}
+
+@Manual{,
+	title = {R: A Language and Environment for Statistical Computing},
+	author = {{R Core Team}},
+	organization = {R Foundation for Statistical Computing},
+	address = {Vienna, Austria},
+	year = 2014,
+	url = {http://www.R-project.org}
+}
+
+@book{Field:2005:DSU:1036774,
+	author = {Field, Andy},
+	title = {Discovering Statistics Using SPSS},
+	year = {2005},
+	isbn = {0761944524},
+	publisher = {SAGE Publications},
+}
+
+@misc{lucene:luke,
+	AUTHOR = {},
+	TITLE = {Luke - Lucene Index Toolbox},
+	Month = nov,
+	Year = "2013",
+	NOTE = "[online; Accessed on 2013-11-14]",
+	URL = "http://code.google.com/p/luke/"
+}
+
+@book{McCandless:2010:LAS:1893016,
+	author = {McCandless, Michael and Hatcher, Erik and Gospodnetic, Otis},
+	title = {Lucene in Action, Second Edition: Covers Apache Lucene 3.0},
+	year = {2010},
+	isbn = {1933988177, 9781933988177},
+	publisher = {Manning Publications Co.},
+	address = {Greenwich, CT, USA},
+}
+
+@article{Blei:2003:LDA:944919.944937,
+	author = {Blei, David M. and Ng, Andrew Y. and Jordan, Michael I.},
+	title = {Latent Dirichlet Allocation},
+	journal = {J. Mach. Learn. Res.},
+	issue_date = {3/1/2003},
+	volume = {3},
+	month = mar,
+	year = {2003},
+	issn = {1532-4435},
+	pages = {993--1022},
+	numpages = {30},
+	url = {http://dl.acm.org/citation.cfm?id = 944919.944937},
+	acmid = {944937},
+	publisher = {JMLR.org},
+}
+
+%Is more advanced and would be a good next step, since some topics are connected with others (e.g. speaking on a topic of polynesians tends to bring up the topic of immigration)
+@misc{Blei06correlatedtopic,
+	author = {David M. Blei, John D. Lafferty},
+	title = {Correlated Topic Models},
+	year = {2006},
+	url = {http://machinelearning.wustl.edu/mlpapers/paper_files/NIPS2005_774.pdf},
+	abstract = {Topic models, such as latent Dirichlet allocation (LDA), can be useful tools for the statistical analysis of document collections and other discrete data. The LDA model assumes that the words of each document arise from a mixture of topics, each of which is a distribution over the vocabulary. A limitation of LDA is the inability to model topic correlation even though, for example, a document about genetics is more likely to also be about disease than x-ray astronomy. This limitation stems from the use of the Dirichlet distribution to model the variability among the topic proportions. In this paper we develop the correlated topic model (CTM), where the topic proportions exhibit correlation via the logistic normal distribution [1]. We derive a mean-field variational inference algorithm for approximate posterior inference in this model, which is complicated by the fact that the logistic normal is not conjugate to the multi-nomial. The CTM gives a better fit than LDA on a collection of OCRed articles from the journal Science. Furthermore, the CTM provides a natural way of visualizing and exploring this and other unstructured data
+sets.},
+	annote = {LDA has it's limitations, including ``the inability to model topic correlation...This limitation stems from the use of the Dirichlet distribution to model the variability among thetopic proportions.'' This paper deploys and demonstrates the benefits of a new correlated topic model (CTM), ``where the topic proportions exhibit correlation via the logistic normal distribution.'' ``The CTM gives a better fit than LDA on ... OCRed articles'' as well as a ``natural way of visualizing and exploring this [even on] unstructured datasets.''
+
+The CTM gives a better fit than LDA on a collection of OCRed articles from the journal Science. Furthermore, the CTM provides a natural way of visualizing and exploring this and other unstructured datasets.}
+}
+
+@book{Blei2007Handbook,
+	editor = {},
+	author = {David M. Blei},
+	booktitle = {Introduction to Probabilistic Topic Models},
+	title = {Introduction to Probabilistic Topic Models},
+	publisher = {},
+	address = {},
+	year = 2007,
+	url = {http://www.cs.princeton.edu/~blei/papers/Blei2011.pdf},
+	abstract = {Probabilistic topic models are a suite of algorithms whose aim is to discover the hidden thematic structure in large archives of documents. In this article, we review the main ideas of this field, survey the current state-of-the-art, and describe some promisingfuture directions. We first describe latent Dirichlet allocation (LDA) [8], which is the simplest kind of topic model. We discuss its connections to probabilistic modeling,and describe two kinds of algorithms for topic discovery. We then survey the growing body of research that extends and applies topic models in interesting ways. These extensions have been developed by relaxing some of the statistical assumptions of LDA, incorporating meta-data into the analysis of the documents, and using similar kinds of models on a diversity of data types such as social networks, images and genetics. Finally, we give our thoughts as to some of the important unexplored directions for topic modeling. These include rigorous methods for checking models built for data exploration, new approaches to visualizing text and other high dimensional data, and moving beyond traditional information engineering applications towards using topic models for more scientific ends.},
+	annote = {This handbook is 16 pages long and covers an introduction to the suite of algorithms known as Probabilistic topic models whose ``aim is to discover the hidden thematic structure in large archives of documents.'' This survey includes the current state-of-the-art, and describe some promising future directions....LDA...and describe two kinds of algorithms for topic discovery. We then survey the growing body of research that extends and applies topic models in interesting ways. These extensions have been developed by relaxing some of the statistical assumptions of LDA, incorporating meta-data into the analysis of the documents, and using similar kinds of models on a diversity of data types such as social networks, images and genetics.'' Future directions are also described including ``rigorous methods for checking models built for data exploration, new approaches to visualizing text..., and moving beyond traditional information engineering applications towards using topic models for more scientific ends.''}
+}
+
+@misc{Blei2006Dynamic,
+	author = {David M. Blei and John D. Lafferty},
+	title = {Dynamic Topic Models},
+	year = {2006},
+	url = {http://dl.acm.org/ft_gateway.cfm?id = 1143859&ftid = 364240&dwn = 1&CFID = 251978667&CFTOKEN = 17214624},
+	abstract = {A family of probabilistic time series models is developed to analyze the time evolution of topics in large document collections. The approach is to use state space models on the natural parameters of the multinomial distributions that represent the topics. Variational approximations based on Kalman filters and nonparametric wavelet regression are developed to carry out approximate posterior inference over the latent topics. In addition to giving quantitative, predictive models of sequential corpus, dynamic topic models provide a qualitative window into the contents of a large document collection. The models are demonstrated by analyzing the OCR’ed archives of the journal Science from 1880 through 2000.},
+	annote = {``A family of probabilistic time series models is developed to analyze the time evolution of topics in large document collections....In addition to giving quantitative, predictive models of sequential corpus, dynamic topic models provide a qualitative window into the contents of a large document collection.'' The models are by analyzing 120 120 years of journals.}
+}
+
+@inproceedings{Newman10automaticevaluation,
+	author = {David Newman and Jey Han Lau and Karl Grieser and Timothy Baldwin},
+	title = {Automatic evaluation of topic coherence},
+	booktitle = {In NAACL-HLT},
+	year = {2010},
+	url = {http://aclweb.org/anthology/N/N10/N10-1012.pdf},
+	abstract = {This paper introduces the novel task of topic coherence evaluation, whereby a set of words, as generated by a topic model, is rated for coherence or interpretability. We apply a range of topic scoring models to the evaluation task, drawing on WordNet, Wikipedia and the Google search engine, and existing research on lexical similarity/relatedness. In comparison with human scores for a set of learned topics over two distinct datasets, we show a simple co-occurrence measure based on point-wise mutual information over Wikipedia data is able to achieve results for the task at or nearing the level of inter-annotator correlation, and that other Wikipedia-based lexical relatedness methods also achieve strong results. Google produces strong, if less consistent, results, while our results over WordNet are patchy at best.},
+	annote = {``This paper introduces the novel task of topic coherence evaluation, whereby a set of words, as generated by a topic model, is rated for coherence or interpretability....In comparison with human scores for a set of learned topics over two distinct datasets, we show a simple co-occurrence measure based on point-wise mutual information over Wikipedia data is able to achieve results for the task at or nearing the level of inter-annotator correlation.}
+}
+
+@inproceedings{hall-jurafsky-manning:2008:EMNLP,
+	author = {Hall, David	and	Jurafsky, Daniel and	Manning, Christopher D.},
+	title = {Studying the History of Ideas Using Topic Models},
+	booktitle = {Proceedings of the 2008 Conference on Empirical Methods in Natural Language Processing},
+	month = {October},
+	year = {2008},
+	address = {Honolulu, Hawaii},
+	publisher = {Association for Computational Linguistics},
+	pages = {363--371},
+	url = {http://www.aclweb.org/anthology/D08-1038},
+	abstract = {How can the development of ideas in a scientific field be studied over time? We apply unsupervised topic modeling to the ACL Anthology to analyze historical trends in the field of Computational Linguistics from 1978 to 2006. We induce topic clusters using Latent Dirichlet Allocation, and examine the strength of each topic over time. Our methods find trends in the field including the rise of probabilistic methods starting in 1988, a steady increase in applications, and a sharp decline of research in semantics and understanding between 1978 and 2001, possibly rising again after 2001. We also introduce a model of the diversity of ideas, topic entropy, using it to show that COLING is a more diverse conference than ACL, but that both conferences as well as EMNLP are becoming broader over time. Finally, we apply Jensen-Shannon divergence of topic distributions to show that all three conferences are converging in the topics they cover. },
+	annote = {``We apply unsupervised topic modeling to the ACL Anthology to analyze historical trends in the field of Computational Linguistics from 1978 to 2006. We induce topic clusters using Latent Dirichlet Allocation, and examine the strength of each topic over time...We also introduce a model of the diversity of ideas, \textit{topic entropy}'' then use it empirically to show that some topics in a field are more or less diverse.	When then ``apply Jensen-Shannon divergence of topic distributions to show that ... conferences are converging in the topics they cover.''}
+}
+
+@inproceedings{Herring:2006:Visualizing,
+	abstract = {In this paper we describe a technique for analyzing textual conversations, Dynamic Topic Analysis, and a tool, VisualDTA, for automatically creating visualizations of data coded according to this technique},
+	author = {Herring, S. C. and Kurtz, A. J.},
+	journal = {Proceedings of CHI'06},
+	keywords = {file-import-08-06-06, webanalysis},
+	posted-at = {2008-06-06 23:24:43},
+	priority = {2},
+	publisher = {ACM Press},
+	title = {Visualizing Dynamic Topic Analysis},
+	year = {2006},
+	url = {http://ella.slis.indiana.edu/~herring/chi06.pdf},
+	abstract = {In this paper we describe a technique for analyzing textual conversations, Dynamic Topic Analysis, and a tool, VisualDTA, for automatically creating visualizations of data coded according to this technique.},
+	annote = {``In this paper we describe a technique for analyzing textual conversations, Dynamic Topic Analysis, and a tool, VisualDTA, for automatically creating visualizations of data coded according to this technique.''}
+}
+
+@inproceedings{Hindle_whatshot,
+	author = {Abram Hindle and Michael W. Godfrey and Richard C. Holt},
+	title = {What's Hot and What's Not: Windowed Developer Topic Analysis},
+	year = {2009},
+	month = {},
+	pages = {339-348},
+	publisher = {International Conference on Software Maintenance - ICSM},
+	url = {http://swag.uwaterloo.ca/~ahindle/pubs/hindle09icsm.pdf},
+	abstract = {As development on a software project progresses, developers shift their focus between different topics and tasks many times. Managers and newcomer developers often seek ways of understanding what tasks have recently been worked on and how much effort has gone into each; for example, a manager might wonder what unexpected tasks occupied their team’s attention during a period when they were supposed to have been implementing a set of new features. Tools such as Latent Dirichlet Allocation (LDA) and Latent Semantic Indexing (LSI) can be used to analyze commit log comments over the entire lifetime of a project.Previous work on developer topic analysis has leveraged these tools to associate commit log comments with independent topics extracted from these commit log comments. In this paper, we use LDA to analyze periods, such as months,within a project’s lifetime to create a time-windowed model of changing development topics. We propose visualizations of this model that allows us to explore the evolving stream of topics of development occurring over time. We demonstrate that windowed topic analysis offers advantages over topic analysis applied to a project’s lifetime because many topics are quite local.},
+	annote = {Software project stakeholders seek ways to understand their software better. This work shows that ``[t]ools such as Latent Dirichlet Allocation (LDA) and Latent Semantic Indexing (LSI) can be used to analyze commit log comments over the entire lifetime of a project.... In this paper, we use LDA to analyze periods, such as months,within a project’s lifetime to create a time-windowed model of changing development topics.'' Visualizations are proposed for this variation of the topic model. Advantages of this analysis of a project's lifetime are demonstrated.
+
+Although the texts are far removed from the type of texts that I will encounter, the fact that this incorporates an interesting approach to visualizing time-windows models of a project is intriguing.}
+}
+
+@inproceedings{asgari-chappelier:2013:CLfL,
+	author = {Asgari, Ehsaneddin	and	Chappelier, Jean-Cedric},
+	title = {Linguistic Resources \& Topic Models for the Analysis of Persian Poems},
+	booktitle = {Proceedings of the Workshop on Computational Linguistics for Literature},
+	month = {June},
+	year = {2013},
+	address = {Atlanta, Georgia},
+	publisher = {Association for Computational Linguistics},
+	pages = {23--31},
+	url = {http://www.aclweb.org/anthology/W13-1404},
+	abstract = {This paper describes the usage of Natural Language Processing tools, mostly probabilistic topic modeling, to study semantics (word correlations) in a collection of Persian poems consisting of roughly 18k poems from 30 different poets. For this study, we put a lot of effort in the preprocessing and the development of a large scope lexicon supporting both modern and ancient Persian. In the analysis step,we obtained very interesting and meaningful results regarding the correlation between poets and topics, their evolution through time,as well as the correlation between the topics and the metre used in the poems. This work should thus provide valuable results to literature researchers, especially for those working on stylistics or comparative literature.},
+	annote = {``This paper describes the usage of Natural Language Processing tools...to study semantics (word correlations) in a collection of Persian poems...both modern and ancient...In the analysis step, we obtained very interesting and meaningful results regarding the correlation between poets and topics, their \textit{evolution through time}, as well as the correlation between the topics and the metre used in the poems.'' }
+}
+
+%``Topic models, which have served as versatile tools for exploratory data analysis and visualization, represent documents as probability distributions over latent topics. Systems comparing topic distributions thus use measures of probability divergence such as Kullback-Leibler, Jensen-Shannon, or Hellinger. This paper presents novel analysis and applications of the reduction of Hellinger divergence to Euclidean distance computations.’’
+%What types of systems compare topic distributions?, How is this any faster? Isn’t it simply the optimization that anyone would have put in place? Maybe so, but they mention it.
+%http://dl.acm.org/citation.cfm?id = 2499189
+@inproceedings{Krstovski2013efficient,
+	author = {Krstovski, Kriste and Smith, David A. and Wallach, Hanna M. and McGregor, Andrew},
+	title = {Efficient Nearest-Neighbor Search in the Probability Simplex},
+	booktitle = {Proceedings of the 2013 Conference on the Theory of Information Retrieval},
+	series = {ICTIR '13},
+	year = {2013},
+	isbn = {978-1-4503-2107-5},
+	location = {Copenhagen, Denmark},
+	pages = {22:101--22:108},
+	articleno = {22},
+	numpages = {8},
+	url = {http://doi.acm.org/10.1145/2499178.2499189},
+	doi = {10.1145/2499178.2499189},
+	acmid = {2499189},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {approximate nearest neighbors, document similarity, latent Dirichlet allocation, topic models},
+	abstract = {Document similarity tasks arise in many areas of information retrieval and natural language processing. A fundamental question when comparing documents is which representation to use. Topic models, which have served as versatile tools for exploratory data analysis and visualization, represent documents as probability distributions over latent topics. Systems comparing topic distributions thus use measures of probability divergence such as Kullback-Leibler, Jensen-Shannon, or Hellinger. This paper presents novel analysis and applications of the reduction of Hellinger divergence to Euclidean distance computations. This reduction allows us to exploit fast approximate nearest-neighbor (NN) techniques, such as locality-sensitive hashing (LSH) and approximate search in k-d trees, for search in the probability simplex. We demonstrate the effectiveness and efficiency of this approach on two tasks using latent	Dirichlet allocation (LDA) document representations: discovering	relationships between National Institutes of Health (NIH) grants	and prior-art retrieval for patents. Evaluation on these tasks and on	synthetic data shows that both Euclidean LSH and approximate k-d tree search perform well when a single nearest neighbor must be	found. When a larger set of similar documents is to be retrieved,	the k-d tree approach is more effective and efficient. },
+	annote = {This paper describes a novel approach to the analysis and applications of ``the Hellinger divergence to Euclidean distance computations.'' It demonstrates that this exploitation can lead to an effective and efficient approach. The approach's effectiveness and efficiency is compared to a 1-NN and k-d tree approach. For 1-NN, it approximates the k-d tree search. LDA document representations are used.}
+}
+
+@inproceedings{snyder-EtAl:2013:Demos,
+	author = {Snyder, Justin	and	Knowles, Rebecca	and	Dredze, Mark	and	Gormley, Matthew	and	Wolfe, Travis},
+	title = {Topic Models and Metadata for Visualizing Text Corpora},
+	booktitle = {Proceedings of the 2013 NAACL HLT Demonstration Session},
+	month = {June},
+	year = {2013},
+	address = {Atlanta, Georgia},
+	publisher = {Association for Computational Linguistics},
+	pages = {5--9},
+	url = {http://www.aclweb.org/anthology/N13-3002},
+	abstract = {Effectively exploring and analyzing large text corpora requires visualizations that provide a high level summary. Past work has relied on faceted browsing of document metadata or on natural language processing of document text. In this paper, we present a new web-based tool that integrates topics learned from an unsupervised topic model in a faceted browsing experience. The user can manage topics, filter documents by topic and summarize views with metadata and topic graphs. We report a user study of the usefulness of topics in our tool.},
+	annote = {This paper focuses on visualizing topics learned form a topic model in a web interface. This allows the user to ``manage topics, filter documents by topic and summarize views with metadata and topic graphs.'' A user study shows the usefulness of topics in the tool. However, the user study might actually be measuring the usefullness of the topic model rather than the tool, unless the web interface filters by default.}
+}
+
+@inproceedings{Wang:2006:TOT:1150402.1150450,
+	author = {Wang, Xuerui and McCallum, Andrew},
+	title = {Topics over Time: A non-Markov Continuous-time Model of Topical Trends},
+	booktitle = {Proceedings of the 12th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+	series = {KDD '06},
+	year = {2006},
+	isbn = {1-59593-339-5},
+	location = {Philadelphia, PA, USA},
+	pages = {424--433},
+	numpages = {10},
+	url = {http://doi.acm.org/10.1145/1150402.1150450},
+	doi = {10.1145/1150402.1150450},
+	acmid = {1150450},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {graphical models, temporal analysis, topic modeling},
+}
+
+@inproceedings{crain2010dialect,
+	title = {Dialect topic modeling for improved consumer medical search},
+	author = {Crain, Steven P and Yang, Shuang-Hong and Zha, Hongyuan and Jiao, Yu},
+	booktitle = {AMIA Annual Symposium Proceedings},
+	volume = {2010},
+	pages = {132},
+	year = {2010},
+	organization = {American Medical Informatics Association}
+}
+
+@book{van1980new,
+	title = {New models in probabilistic information retrieval},
+	author = {Van Rijsbergen, Cornelis J and Robertson, Stephen Edward and Porter, Martin F},
+	year = {1980},
+	publisher = {Computer Laboratory, University of Cambridge}
+}
+
+
+%Rabbit?
+%does recommendation based on content, does recommendation based on reading level
+%http://dl.acm.org/citation.cfm?id = 2507181
+@inproceedings{Pera:2013:RNM:2507157.2507181,
+	author = {Pera, Maria Soledad and Ng, Yiu-Kai},
+	title = {What to Read Next?: Making Personalized Book Recommendations for K-12 Users},
+	booktitle = {Proceedings of the 7th ACM Conference on Recommender Systems},
+	series = {RecSys '13},
+	year = {2013},
+	isbn = {978-1-4503-2409-0},
+	location = {Hong Kong, China},
+	pages = {113--120},
+	numpages = {8},
+	url = {http://doi.acm.org/10.1145/2507157.2507181},
+	doi = {10.1145/2507157.2507181},
+	acmid = {2507181},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {book recommendation system, k-12, readability}
+}
+
+%
+%http://dl.acm.org/citation.cfm?id = 2488457
+@inproceedings{Liu:2013:SSN:2488388.2488457,
+	author = {Liu, Xin and Aberer, Karl},
+	title = {SoCo: A Social Network Aided Context-aware Recommender System},
+	booktitle = {Proceedings of the 22Nd International Conference on World Wide Web},
+	series = {WWW '13},
+	year = {2013},
+	isbn = {978-1-4503-2035-1},
+	location = {Rio de Janeiro, Brazil},
+	pages = {781--802},
+	numpages = {22},
+	url = {http://dl.acm.org/citation.cfm?id = 2488388.2488457},
+	acmid = {2488457},
+	publisher = {International World Wide Web Conferences Steering Committee},
+	address = {Republic and Canton of Geneva, Switzerland},
+	keywords = {context-awareness, matrix factorization, recommender system, social networks}
+}
+
+%
+%http://dl.acm.org/citation.cfm?id = 245121
+@article{Resnick:1997:RS:245108.245121,
+	author = {Resnick, Paul and Varian, Hal R.},
+	title = {Recommender Systems},
+	journal = {Commun. ACM},
+	issue_date = {March 1997},
+	volume = {40},
+	number = {3},
+	month = mar,
+	year = {1997},
+	issn = {0001-0782},
+	pages = {56--58},
+	numpages = {3},
+	url = {http://doi.acm.org/10.1145/245108.245121},
+	doi = {10.1145/245108.245121},
+	acmid = {245121},
+	publisher = {ACM},
+	address = {New York, NY, USA}
+}
+%Mention as an example of non-textual use
+%http://dl.acm.org/citation.cfm?id = 2348349
+@inproceedings{Qumsiyeh:2012:PRM:2348283.2348349,
+	author = {Qumsiyeh, Rani and Ng, Yiu-Kai},
+	title = {Predicting the Ratings of Multimedia Items for Making Personalized Recommendations},
+	booktitle = {Proceedings of the 35th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+	series = {SIGIR '12},
+	year = {2012},
+	isbn = {978-1-4503-1472-5},
+	location = {Portland, Oregon, USA},
+	pages = {475--484},
+	numpages = {10},
+	url = {http://doi.acm.org/10.1145/2348283.2348349},
+	doi = {10.1145/2348283.2348349},
+	acmid = {2348349},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {genre, multimedia recommender, popularity, rating, review}
+}
+
+%For groups of users.
+%Has cold-start problem?
+%http://link.springer.com/chapter/10.1007%2F0-306-48019-0_11#page-1
+@incollection{PolyLens,
+	year = {2001},
+	isbn = {978-0-7923-7162-5},
+	booktitle = {ECSCW 2001},
+	editor = {Prinz, Wolfgang and Jarke, Matthias and Rogers, Yvonne and Schmidt, Kjeld and Wulf, Volker},
+	doi = {10.1007/0-306-48019-0_11},
+	title = {PolyLens: A Recommender System for Groups of Users},
+	url = {http://dx.doi.org/10.1007/0-306-48019-0_11},
+	publisher = {Springer Netherlands},
+	author = {O’Connor, Mark and Cosley, Dan and Konstan, JosephA. and Riedl, John},
+	pages = {199-218},
+	language = {English},
+  abstract = {}
+}
+
+%``As the Netflix Prize competition has demonstrated, matrix factorization models are superior to classic nearest neighbor techniques for producing product recommendations, allowing the incorporation of additional information such as implicit feedback, temporal effects, and confidence levels.’’
+%i.e. We don’t do this, left to future work.
+%http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber = 5197422&tag = 1
+@article{5197422,
+	author = {Koren, Y. and Bell, R. and Volinsky, C.},
+	journal = {Computer},
+	title = {Matrix Factorization Techniques for Recommender Systems},
+	year = {2009},
+	month = {Aug},
+	volume = {42},
+	number = {8},
+	pages = {30-37},
+	keywords = {information filtering;matrix decomposition;retail data processing;Netflix Prize competition;matrix factorization technique;nearest neighbor technique;product recommendation system;recommender system;Bioinformatics;Collaboration;Filtering;Genomics;Motion pictures;Nearest neighbor searches;Predictive models;Recommender systems;Sea measurements;Computational intelligence;Matrix factorization;Netflix Prize},
+	doi = {10.1109/MC.2009.263},
+	ISSN = {0018-9162}
+}
+
+%An example of location-content aware RS. Not sure how to reference this one.
+%http://dl.acm.org/citation.cfm?id = 2487608
+@inproceedings{Yin:2013:LLR:2487575.2487608,
+	author = {Yin, Hongzhi and Sun, Yizhou and Cui, Bin and Hu, Zhiting and Chen, Ling},
+	title = {LCARS: A Location-content-aware Recommender System},
+	booktitle = {Proceedings of the 19th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+	series = {KDD '13},
+	year = {2013},
+	isbn = {978-1-4503-2174-7},
+	location = {Chicago, Illinois, USA},
+	pages = {221--229},
+	numpages = {9},
+	url = {http://doi.acm.org/10.1145/2487575.2487608},
+	doi = {10.1145/2487575.2487608},
+	acmid = {2487608},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {cold start, location-based service, probabilistic generative model, recommender system, ta algorithm}
+}
+
+%``Recommender systems are quickly becoming ubiquitous in many Web applications, including e-commerce, social media channels, content providers, among others. These systems act as an enabling mechanism designed to overcome the information overload problem by improving browsing and consumption experience.’’
+%http://dl.acm.org/citation.cfm?id = 2433492
+@inproceedings{Lacerda:2013:BUP:2433396.2433492,
+	author = {Lacerda, Anisio and Ziviani, Nivio},
+	title = {Building User Profiles to Improve User Experience in Recommender Systems},
+	booktitle = {Proceedings of the Sixth ACM International Conference on Web Search and Data Mining},
+	series = {WSDM '13},
+	year = {2013},
+	isbn = {978-1-4503-1869-3},
+	location = {Rome, Italy},
+	pages = {759--764},
+	numpages = {6},
+	url = {http://doi.acm.org/10.1145/2433396.2433492},
+	doi = {10.1145/2433396.2433492},
+	acmid = {2433492},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {diversity, novelty, recommender systems}
+}
+
+%Very good paper. We use their metrics.
+%http://dl.acm.org/citation.cfm?id = 1864761
+@inproceedings{Ge:2010:BAE:1864708.1864761,
+	author = {Ge, Mouzhi and Delgado-Battenfeld, Carla and Jannach, Dietmar},
+	title = {Beyond Accuracy: Evaluating Recommender Systems by Coverage and Serendipity},
+	booktitle = {Proceedings of the Fourth ACM Conference on Recommender Systems},
+	series = {RecSys '10},
+	year = {2010},
+	isbn = {978-1-60558-906-0},
+	location = {Barcelona, Spain},
+	pages = {257--260},
+	numpages = {4},
+	url = {http://doi.acm.org/10.1145/1864708.1864761},
+	doi = {10.1145/1864708.1864761},
+	acmid = {1864761},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {coverage, evaluation metric, recommender system, serendipity}
+}
+
+%Top-n mentioned, which is promising, but they mention some...
+%http://dl.acm.org/citation.cfm?id = 2488151
+@inproceedings{Jelassi:2013:PRS:2487788.2488151,
+	author = {Jelassi, Mohamed Nader and Ben Yahia, Sadok and Mephu Nguifo, Engelbert},
+	title = {A Personalized Recommender System Based on Users' Information in Folksonomies},
+	booktitle = {Proceedings of the 22Nd International Conference on World Wide Web Companion},
+	series = {WWW '13 Companion},
+	year = {2013},
+	isbn = {978-1-4503-2038-2},
+	location = {Rio de Janeiro, Brazil},
+	pages = {1215--1224},
+	numpages = {10},
+	url = {http://dl.acm.org/citation.cfm?id = 2487788.2488151},
+	acmid = {2488151},
+	publisher = {International World Wide Web Conferences Steering Committee},
+	address = {Republic and Canton of Geneva, Switzerland},
+	keywords = {folksonomy, precision, profile, quadratic concepts, recommender system, users}
+}
+
+%http://dl.acm.org/citation.cfm?doid = 1864708.1864721
+@inproceedings{Cremonesi:2010:PRA:1864708.1864721,
+	author = {Cremonesi, Paolo and Koren, Yehuda and Turrin, Roberto},
+	title = {Performance of Recommender Algorithms on Top-n Recommendation Tasks},
+	booktitle = {Proceedings of the Fourth ACM Conference on Recommender Systems},
+	series = {RecSys '10},
+	year = {2010},
+	isbn = {978-1-60558-906-0},
+	location = {Barcelona, Spain},
+	pages = {39--46},
+	numpages = {8},
+	url = {http://doi.acm.org/10.1145/1864708.1864721},
+	doi = {10.1145/1864708.1864721},
+	acmid = {1864721},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {evaluation, precision, recall, top-n recommendations}
+}
+
+%MyMediaLite could have also been used, but we chose to use a TF-IDF system.
+%http://dl.acm.org/citation.cfm?doid = 2043932.2043989
+@inproceedings{Gantner:2011:MFR:2043932.2043989,
+	author = {Gantner, Zeno and Rendle, Steffen and Freudenthaler, Christoph and Schmidt-Thieme, Lars},
+	title = {MyMediaLite: A Free Recommender System Library},
+	booktitle = {Proceedings of the Fifth ACM Conference on Recommender Systems},
+	series = {RecSys '11},
+	year = {2011},
+	isbn = {978-1-4503-0683-6},
+	location = {Chicago, Illinois, USA},
+	pages = {305--308},
+	numpages = {4},
+	url = {http://doi.acm.org/10.1145/2043932.2043989},
+	doi = {10.1145/2043932.2043989},
+	acmid = {2043989},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {e-commerce, open source, personalization}
+}
+
+%Can be used to improve search, because it can tag a document with keywords. But since they are binary (present or not), it is ends up being a subset of topic modelling, where the indicator function is a threshold: For each tag, If the document contains more than x% of topic y, then tag it with y. //Otherwise, do not tag it. While this might be sufficient for search, it doesn’t appear to be sufficient for a recommendation.
+%http://dl.acm.org/citation.cfm?id = 1639726
+@inproceedings{Krestel:2009:LDA:1639714.1639726,
+	author = {Krestel, Ralf and Fankhauser, Peter and Nejdl, Wolfgang},
+	title = {Latent Dirichlet Allocation for Tag Recommendation},
+	booktitle = {Proceedings of the Third ACM Conference on Recommender Systems},
+	series = {RecSys '09},
+	year = {2009},
+	isbn = {978-1-60558-435-5},
+	location = {New York, New York, USA},
+	pages = {61--68},
+	numpages = {8},
+	url = {http://doi.acm.org/10.1145/1639714.1639726},
+	doi = {10.1145/1639714.1639726},
+	acmid = {1639726},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {delicious, social bookmarking system, tag recommendation, tag search}
+}
+
+%Drawbacks: Only a binary system is explored; also, it is a hybrid system, which is a step ahead of what we want. We need a baseline system before we invest more energy into research.
+%http://dl.acm.org/citation.cfm?doid = 1639714.1639735
+@inproceedings{Gunawardana:2009:UAB:1639714.1639735,
+	author = {Gunawardana, Asela and Meek, Christopher},
+	title = {A Unified Approach to Building Hybrid Recommender Systems},
+	booktitle = {Proceedings of the Third ACM Conference on Recommender Systems},
+	series = {RecSys '09},
+	year = {2009},
+	isbn = {978-1-60558-435-5},
+	location = {New York, New York, USA},
+	pages = {117--124},
+	numpages = {8},
+	url = {http://doi.acm.org/10.1145/1639714.1639735},
+	doi = {10.1145/1639714.1639735},
+	acmid = {1639735},
+	publisher = {ACM},
+	address = {New York, NY, USA},
+	keywords = {boltzmann machines, cold start, collaborative filtering, content-based filtering, recommender systems}
+}
+
+
+
+
+
+
+
+
+
+
+% TODO: Remove the follow references as they are just part of the template.
+
+
+
+
 @BOOK{SomeSweetBook06,
   AUTHOR =       {Some Smart Guy},
   TITLE =        {The Best Book Ever},
