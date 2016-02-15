@@ -1,21 +1,27 @@
-\appendix{Sample Appendix}
+\appendix{Appendix}
 
-\section{Width Based on Page Size Figure Example} \label{sec:appendxia_figure_example}
-Here's an example of a figure whose width depends on the width
-of the page. You can see if as Figure \ref{fig:appendix_some_pic}.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.45\textwidth,natwidth=610,natheight=642]{figures/appendixa/some_pic.jpg}
-  \caption[Example Width Based on Page Size Figure]{
-    This is an example of a figure whose width will be 45\% of the
-    width of the page. If you'd like to see a figure with a fixed
-    width then you can see it as Figure \ref{fig:intro_stuff} in
-    Section \ref{sec:intro_figure_example}. Just FYI, I made this
-    figure with PowerPoint and then copied it and pasted it into
-    wmf2eps and choose the "Paste EMF" option. It will generate
-    a larger file, but it will look a TON better than the
-    "Paste WMF" option and the "Paste DIB" option will paste the
-    rasterized image that won't scale well at all.}
-  \label{fig:appendix_some_pic}
-\end{figure}
+% Consider not using comma-delimiting
+\begin{center}
+	\begin{tabular}[pos]{| l | l | l |}
+		\hline
+		Tool/Library & Use & Link \\ \hline
+		git & code versioning; code sharing & \url{https://git-scm.com/about} \\ \hline
+		Latex, Google Docs, Microsoft Office & Composing this document & \url{https://www.latex-project.org/}, \url{https://docs.google.com}, \url{https://products.office.com/en-us/word} \\ \hline
+		AntConc & Indexing of files to locate high-frequency words later used as stop words. & \url{http://www.laurenceanthony.net/software/antconc/} \\ \hline
+		``docker'' (docker daemon, docker-compose, docker containers) & Containerization and modularization of each module such that when running, code for each module only contains input, the necessary code, output, and operating system tools. & \url{https://www.docker.com/} \\ \hline
+		mysql SCI database & Input into first module & \url{link not available} \\ \hline
+		mysql server, mysql client & hosting + querying of SCI database & \url{http://dev.mysql.com/} \\ \hline
+		GNUMake & orchestration of modules (i.e. the command ‘make thesis’ runs each module that hasn’t been run, making sure to do so in the correct order & \url{https://www.gnu.org/software/make/} \\ \hline
+		nodeJS, sh, bash, zsh & orchestration of modules (i.e. the command ‘make thesis’ runs each module that hasn’t been run, making sure to do so in the correct order & \url{https://nodejs.org/en/}, \url{https://www.gnu.org/software/bash/} \\ \hline
+		VirtualBox & running docker daemon via boot2docker (Linux VM) & \url{https://www.virtualbox.org/} \\ \hline
+		Atom, vi, nano & code editors & \url{https://atom.io/}, \url{http://www.vim.org/}, \url{http://www.nano-editor.org/} \\ \hline
+		mallet & indexing of files in preparation for LDA; Gibbs Sampling to infer parameters of LDA topic model & \url{http://mallet.cs.umass.edu/} \\ \hline
+		Mac OS-X & Host system running VM, hosting code & \url{http://www.apple.com/osx/} \\ \hline
+		Bitbucket & code hosting & \url{https://bitbucket.org/} \\ \hline
+		GitHub & code hosting location of open source tools used in the project including nodeJS and mallet & \url{https://github.com/} \\ \hline
+		less, more, cat, wc,  grep, egrep, z, oh-my-zsh & general modification or searching of files in *nix & \url{https://en.wikipedia.org/wiki/Less_(Unix)}, \url{http://linux.die.net/man/1/more}, \url{http://linux.die.net/man/1/grep}, \url{http://linux.die.net/man/1/egrep}, \url{http://linux.die.net/man/1/wc}, \url{https://github.com/rupa/z}, \url{https://github.com/robbyrussell/oh-my-zsh} \\ \hline
+		regular expressions & easy removal of boiler plate HTML from documents & \url{https://en.wikipedia.org/wiki/Regular_expression} \\ \hline
+		npm & hosting of open source code used in nodeJS & \url{https://www.npmjs.com/} \\ \hline
+		\hline
+	\end{tabular}
+\end{center}

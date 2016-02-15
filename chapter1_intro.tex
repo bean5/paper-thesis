@@ -39,14 +39,14 @@ Unfortunately, without a way to determine what topics exist within all the LDS d
 
 If the user were to filter to only scriptures, they would find more than 20k matches:
 
-\[TODO: Insert picture here `sci_results_20k.png`--include caption, etc.\]
+\[TODO: Insert picture here sci_results_20k.png--include caption, etc.\]
 
 Of those, the first one that refers to directly to a law of health is the 4th result. LDS.org, when performing the same search ranks the result referring to the law of health as the 4th result (\url{https://www.lds.org/scriptures/search?type=verse&query=word+of+wisdom}), but does so with only 39 total results. These are results that I was able to find because I understood how the search engine works. When one doesn’t know when to put quotes or doesn’t know what they are looking for, the task is more difficult, depending on the engine used. For example, when the entire query is run with quotes around it in LDS SCI, the number of results drops from the 20k down to 7 in LDS SCI and in LDS.org down from 39 to 8 in LDS.org (\url{https://www.lds.org/scriptures/search?type=verse&query="word+of+wisdom"}). [Search relevance is an entire area of research and it is no wonder that companies that are able to do well in this area are able to profit from it (e.g. Microsoft with \url{https://bing.com} and Google with \url{https://google.com}).]
 
 While search query optimization would be one way to improve this area, I chose to augment the LDS SCI toolset with recommendation features. The idea was that once a reader locates a discourse of interest, it would be helpful to provide a list of similar discourses as a list. The list could default to displaying 5, but the user could interact with the result and request additional results. There are many ways to approach this that I will explain.
 
 \section{Recommender Systems}
-\% TODO: Before referencing LDA, describe it or use longer name.
+% TODO: Before referencing LDA, describe it or use longer name.
 Recommender systems, sometimes called recommendation systems, vary in the way that they are created. For this work, two possible systems stood out immediately for my use: LDA-based recommendation and TF-IDF based recommendation. The latter is straightforward, easy to implement, and uses the same metrics that the query search at LDS SCI uses. The LDA-based model brings additional features to the table, but does so indirectly. Every LDA is a distribution over distributions. In my case, for the model to be built, each word token is assigned to a 1 and only 1 topic. This can easily be collected and indexed, then exposed as a keyword frequency index for each topic. So on top of providing per-discourse recommendations, it could easily be used to create an index of topics, linkable to the documents with a large clustering of words in each topic! Since that was not a main focus in my work, I published the results of that at \url{http://bean5.github.io/lds-talks-by-topic/} for future use. The downside to LDA is that it is only a model. An algorithm to building the LDA model must be selected. Some algorithms include:
 
 \begin{enumerate}
