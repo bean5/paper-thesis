@@ -1,5 +1,5 @@
 cached/
-dist/
+build/
 *.zip
 *.acn
 *.acr
