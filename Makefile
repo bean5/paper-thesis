@@ -3,8 +3,13 @@
 build:
 	@-make clean
 	-(docker-compose build && docker-compose run build)
-	# cp main.pdf build/thesis-LDS_SCI_Recommender_Systems-Michael_Bean.pdf
 	@-make simpleClean
+
+publish:
+	@echo "Copying to build folder."
+	cp master.pdf build/thesis-LDS_SCI_Recommender_Systems-Michael_Bean.pdf
+	@echo "Copying to word_etc folder. This will be public to professors!"
+	cp master.pdf word_etc/thesis-LDS_SCI_Recommender_Systems-Michael_Bean.pdf
 
 project.pdf: master.tex refs.bib
 	# Makes images work, but biblio section is missing.
