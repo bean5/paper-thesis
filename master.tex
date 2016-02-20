@@ -52,6 +52,7 @@
 \usepackage{graphicx}        % for figures
 \usepackage{subfigure}       % for figures with multiple subfigures
 \usepackage{setspace}        % so all the captions will be single spaced
+\usepackage{natbib}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  END: Include other \usepackage{} statements here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -159,8 +160,9 @@
 
 %%%%%%%%%%%%% begin Bibliography %%%%%%%%%%%%%%%%%
 \phantomsection %Forces a new section prior to setting the bibliography reference point
-\bibliographystyle{IEEEtran}
+%\bibliographystyle{IEEEtran}
 \addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{plainnat}
 \bibliography{refs}
 
 % Bibliographies are best created and maintained using BibTeX
