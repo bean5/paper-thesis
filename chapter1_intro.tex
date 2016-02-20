@@ -1,5 +1,5 @@
 \chapter{Introduction}
-You have probably heard that the amount of digital data is increasing at alarming rates each year. It is difficult to pin down the actual rate. It is difficult to pin down the actual rate. BBC says ``Some say that about 90\% of all the data in the world today has been created in the past few years...According to computer giant IBM, 2.5 exabytes - that's 2.5 billion gigabytes (GB) - of data was generated every day in 2012. That's big by anyone's standards. ‘About 75\% of data is unstructured, coming from sources such as text, voice and video,’ says Mr Miles.'' I worked for a while at a company that stores backups of data. The amount of data they were storing reached 20 PB!
+You have probably heard that the amount of digital data is increasing at alarming rates each year. It is difficult to pin down the actual rate. BBC says ``Some say that about 90\% of all the data in the world today has been created in the past few years...According to computer giant IBM, 2.5 exabytes - that's 2.5 billion gigabytes (GB) - of data was generated every day in 2012. That's big by anyone's standards. ‘About 75\% of data is unstructured, coming from sources such as text, voice and video,’ says Mr Miles.'' I worked for a while at a company that stores backups of data. The amount of data they were storing reached 20 PB!
 
 With so much digital data, much of which is unstructured, it becomes necessary to assist users of data to sift through and learn from data leveraging computers to perform some of the tasks. One way to expose data is to allow users to search via query. Another way is by recommendation. In this thesis, I compare two recommendation systems and systematically select the best for use on the (unstructured) textual data I have, in preparation for potential enhancements to the website \url{http://scriptures.byu.edu} (hereafter, LDS Scripture Citation Index, or simply LDS SCI).
 
@@ -75,14 +75,17 @@ Running a Gibbs Sampler long enough is guaranteed to converge to what is called 
   \item Hellinger distance (Jenson-Shannon reduced for parallelization in k-NN; produces same results as Jenson-Shannon when used in k-NN)
 \end{enumerate}
 
+\section{LDA}
+LDA stands for latent dirichlet allocation. It is a model where each token within a document is tagged with 1 and only 1 topic. Each document is treated as a bag of words.
+
 \section{Problems}
 \[TODO: Complete this section.\]
 
 \section{Open Source Tools: Docker, Mallet, npm}
 Core to this project is the use of docker. Dockers are Linux containers which the docker-engine (i.e. docker daemon) can build and run. They can be thought of as Linux virtual machines in some ways, although they tend to be resource/hardware agnostic since they simply share the kernel, RAM, and other hardware on the host on which they are run. They are considered lightweight since instead of running the full Linux stack for each container, only necessary files are run from within the container. This has made it easy for a new market to emerge where products that are software as a service (SaaS) can be hosted at a lower cost. Container Engine by Google (\url{https://cloud.google.com/container-engine/}) and tutum but Tutum (\url{https://www.tutum.co/}) are examples of this.
 
-\% TODO: Cite quote instead of linking
+% TODO: Cite quote instead of linking
 Docker has a growing community around it. In fact, Google has created an open source project called Kubernetes which aims to ``accelerate Dev and simplify Ops'' (\url{https://kubernetes.io/}). It is used under the covers for Container Engine, a Google cloud product. Although Linux containers have been around for some time now, the docker community has made it much more mainstream, especially for computing environments where scaling horizontally is important. Thus, companies such as Netflix, EMC find it highly beneficial. In my experience, Linux tools with growing communities are well backed, become robust, and tend to be both easy to use as well as empowering.
-Docker has quickly become that, as evidenced by its use in this experiment. \% TODO: Move to methodology section.
+Docker has quickly become that. Use in this thesis is one evidenced of its growing popularity. % TODO: Move to methodology section.
 
 \[TODO: Add more here.\]
