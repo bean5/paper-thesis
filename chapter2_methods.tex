@@ -3,9 +3,17 @@
 \section{Reproducibility}
 In order to be able to reproduce, share, and track work performed in the process of completing this thesis, I versioned code using git. I employed the use of both cutting edge tools as well as well-established ones. The result is code that is both highly capable and easy to follow. Ultimately, I aimed to make the code highly configurable, re-runable, measurable, and shareable.
 
-In this section, methodology will be described, starting with code management \& organization, then tools used (programming languages, CLI tools, operating systems, libraries, databases), followed by models, algorithms \& metrics, concluding with metrics. In the following diagram, the steps (or modules) of the experiment are shown. Modules that are higher on the diagram are performed before lower ones. When modules are horizontally adjacent, they may be done in parallel. Note that further parallelization is possible, but not shown.
+In this section, methodology will be described, starting with code management \& organization, then tools used (programming languages, CLI tools, operating systems, libraries, databases), followed by models, algorithms \& metrics, concluding with metrics. In the \ref{fig:entire_process}, the steps (or modules) of the experiment are shown.
 
-\[TODO: Insert picture here `entire_process.png`--include caption, etc.\]
+\begin{figure}[hhhhhtb]
+	\centering
+		\includegraphics[width=7.5in,natwidth=810,natheight=942]{figures/entire_process.png}
+		\caption[Entire Process]{
+			Experiment Process\\
+			The entire process for the thesis experiment outlined as `modules'. When modules are horizontally adjacent, they may be done in parallel. Note that further parallelization is possible, but not shown. Modules that are higher on the diagram are performed before lower ones.
+		}
+	\label{fig:entire_process}
+\end{figure}
 
 \section{Code Management + Organization}
 For the experiment to be robust, it is important that it can be replicated and compared. One of the best ways to allow for this is to make the code both configurable and sharable. Thus, this section is included.
@@ -42,11 +50,19 @@ Given that I had prior experience using Gibbs Sampling to generate LDA models ([
 	\begin{tabular}[pos]{| l | l | l | l | l | l |}
 		\hline
 		Algorithm & Variable Name & Variable Type & Input Value & Use & Reason \\ \hline
-		k-NN & k & integer & 100 & Sets number of neighbors to return for each document. & Using a value of 100 requires more computing, but also allows us to compare the models for up to 100 recommendations per document. \\ \hline
+
+		k-NN & k & integer & 100 & Sets number of neighbors to \\ return for each document. & Using a value of 100 requires more computing, but also allows us to compare the models for up to 100 recommendations per document. \\ \hline
+
 		Gibbs Sampling & t & integer & 250 & Sets number of topics to find & In previous research I determined that 250 was a good number for this variable. \\ \hline
-		k-NN distance metric for TF-IDF model & distance & function & Cosine & Distance metric allows algorithm to measure distance between documents in the model. & Intuitive and well-known. Others functions exist for this, but are left to future work to use. \\ \hline
-		k-NN distance metric for LDA model & distance & function & Jenson-Shannon & Distance metric allows algorithm to measure distance between documents in the model. & Well-known and works for vectors in the probability simplex. \\ \hline
+
+		k-NN distance metric \\
+		for TF-IDF model & distance & function & Cosine & Distance metric allows algorithm to measure distance between documents in the model. & Intuitive and well-known. Others functions exist for this, but are left to future work to use. \\ \hline
+
+		k-NN distance metric \\
+		for LDA model & distance & function & Jenson-Shannon & Distance metric allows algorithm to measure distance between documents in the model. & Well-known and works for vectors in the probability simplex. \\ \hline
+
 		TF-IDF & stop words & list of word strings & none & Sets words to ignore in model. & Assigns words a value of 0 TF and 0 IDF values or removes them altogether to shrink vector space and accelerate computing (depends on actual algorithm implementation). TF-IDF is robust against high-frequency words since they automatically receive low TF and low IDF values. \\ \hline
+
 		Preparing input LDA & stop words & list of word strings & default mallet list + handful of religious words [TODO: which words?] & Removes stopwords at indexing time (module x [TODO: name exact module here]). & LDA is not super robust against common words. \\ \hline
 		normalization & to\_lower\_case & boolean & true & If true, tells algorithm to lowercase all text. & To allow all following algorithms to ignore case, the simplest way to do so was to lowercase everything before completing the data preparation core module. \\ \hline
 	\end{tabular}
