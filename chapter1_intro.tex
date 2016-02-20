@@ -8,7 +8,14 @@ Before proceeding, I will preface that I endeavor to provide URL hyperlinks when
 \section{About LDS Scripture Citation Index (SCI)}
 LDS SCI is available both on the web and on mobile devices. All forms have a search feature which utilizes a Lucene \cite{lucene:luke} back-end search which employs a TF-IDF algorithm for ranking search matches for any query. Since the data made accessible by LDS SCI is indexed and cataloged, it has some metadata which can be used as criteria in the filter, such as year, speaker or venue (e.g. General Conference).
 
-\[TODO: Insert picture here sci_search.png--include caption, etc.\]
+\begin{figure}[hhhhhtb]
+	\centering
+		\includegraphics[width=3.5in,natwidth=310,natheight=442]{figures/sci_search.png}
+		\caption[SCI TF-IDF Search Results]{
+			Samples results of a search provided to SCI Lucene search engine.
+		}
+	\label{fig:sci_search}
+\end{figure}
 
 Providing search capabilities is just one way LDS SCI exposes their index. The area where LDS SCI really shines is by its use of indexing. While an LDS discourse often has references placed in-line or at the end of the text, the reverse is not the case; LDS scriptures, including the ones found online at \url{https://www.lds.org/scriptures/}, have only footnotes. LDS SCI has copies of LDS discourses and scriptures, indexes the references, then exposes that index in a searchable way. This allows users to reach discourses from scriptures (LDS.org does the reverse). While LDS.org provides discourse-based study or scripture-only study, LDS SCI allows for an enhanced scripture-based study, starting at chapters of scripture leading to LDS discourses for potential clarification.
 
@@ -17,7 +24,14 @@ LDS SCI is similar to LDS.org in that users can use them to read both scriptures
 \section{Motivation}
 While the LDS SCI is helpful for the aspiring erudite (of LDS content), there is currently no recommendation system for the discourses: when a user finds an interesting discourse, there is no simple way to find similar/related discourse. Although the LDS website has some modern General Conference (GC) discourses tagged with topics, such topics are currently provided on a per-year basis only, so the discourses tagged with each topic tend to be sparse. This works when members of the LDS church want to focus on the most recent discourses only. Even with URL manipulation, an attempt to expose topics for all GC discourses rather than by year does not work (\url{https://www.lds.org/general-conference/topics/2015/10} vs. \url{https://www.lds.org/general-conference/topics/})--it results in the topic index for the most recent session of GC. Sparseness for the discourses in a given topic are apparent in the image--most topics only have 1 associated discourse and therefore have no number next to the topic’s title:
 
-\[TODO: Insert picture here `oct_2015_topics.png`--include caption, etc.\]
+\begin{figure}[hhhhhtb]
+	\centering
+		\includegraphics[width=4.5in,natwidth=410,natheight=542]{figures/oct_2015_topics.png}
+		\caption[LDS.org 2015 Topics]{
+
+		}
+	\label{fig:oct_2015_topics}
+\end{figure}
 
 Therefore, for users of LDS.org, when a reader enjoys a particular discourse, it is difficult to locate all discourses on a given topic. It is theoretically possible to peruse every session of GC (as far back as 1971) looking for the topic for every year. The task requires a lot of clicking and will not work for discourses published before 1971 since they are not exposed online at LDS.org.
 
@@ -31,7 +45,14 @@ In the past 2 years, the query engine provided by both LDS.org and LDS SCI have 
 
 Take for example the search query ``word of wisdom'' (without quotes in the search). This is a phrase which is more recent history of the LDS church has come to refer to a law of health. The search results look promising:
 
-\[TODO: Insert picture here `sci_results.png`--include caption, etc.\]
+\begin{figure}[hhhhhtb]
+	\centering
+		\includegraphics[width=3.5in,natwidth=310,natheight=442]{figures/sci_results.png}
+		\caption[Top SCI Query Results for the search \textit{Word of Wisdom}]{
+
+		}
+	\label{fig:sci_results}
+\end{figure}
 
 But one would expect to see something by Joseph Smith Jr. to rank at the top. The confounding factor here is that ``word of wisdom'' is a modern naming convention. % TODO: Fact check this!
 The word of wisdom was ``[r]evelation given through Joseph Smith the Prophet, at Kirtland, Ohio, February 27, 1833.'' (D\&C 89 Header). The earliest usage of the phrase ``word of wisdom'' in print we could find is 1873--40 years after it was revealed. (The Word of Wisdom—Education by President George A. Smith).
@@ -40,7 +61,14 @@ Unfortunately, without a way to determine what topics exist within all the LDS d
 
 If the user were to filter to only scriptures, they would find more than 20k matches:
 
-\[TODO: Insert picture here sci_results_20k.png--include caption, etc.\]
+\begin{figure}[hhhhhtb]
+	\centering
+		\includegraphics[width=3.5in,natwidth=310,natheight=442]{figures/sci_results_20k.png}
+		\caption[20k+ SCI Results]{
+
+		}
+	\label{fig:sci_results_20k}
+\end{figure}
 
 Of those, the first one that refers to directly to a law of health is the 4th result. LDS.org, when performing the same search ranks the result referring to the law of health as the 4th result (\url{https://www.lds.org/scriptures/search?type=verse&query=word+of+wisdom}), but does so with only 39 total results. These are results that I was able to find because I understood how the search engine works. When one doesn’t know when to put quotes or doesn’t know what they are looking for, the task is more difficult, depending on the engine used. For example, when the entire query is run with quotes around it in LDS SCI, the number of results drops from the 20k down to 7 in LDS SCI and in LDS.org down from 39 to 8 in LDS.org (\url{https://www.lds.org/scriptures/search?type=verse&query="word+of+wisdom"}). [Search relevance is an entire area of research and it is no wonder that companies that are able to do well in this area are able to profit from it (e.g. Microsoft with \url{https://bing.com} and Google with \url{https://google.com}).]
 
