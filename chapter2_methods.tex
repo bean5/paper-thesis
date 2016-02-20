@@ -8,7 +8,7 @@ In this section, methodology will be described, starting with code management \&
 \[TODO: Insert picture here `entire_process.png`--include caption, etc.\]
 
 \section{Code Management + Organization}
-For an experiment to be robust, it is important that it can be replicated and compared. One of the best ways to allow for this is to make the code both configurable and sharable. Thus, this section is included.
+For the experiment to be robust, it is important that it can be replicated and compared. One of the best ways to allow for this is to make the code both configurable and sharable. Thus, this section is included.
 
 I versioned the experiment’s code in a git project along with data during the gathering process. Whenever a step completes, it outputs data which can be used as input to other modules. The code is modularized such that each docker target corresponds with a module shown previously. The docker daemon builds each target open request (as directed by make), and using docker-compose, directories are connected to the image as volumes. This allows the image to be both modular and systematic. Each docker target has a corresponding file called Dockerfile. Each Dockerfile instructs the docker daemon to obtain requisite packages, e.g. nodeJS, for the module to run the code specific to it. When the code is complete, the docker container terminates, and the next may run when Make instructs it to do so.
 
@@ -33,7 +33,7 @@ Choice of algorithm \& metrics go hand-in-hand. In fact, algorithm and data can 
 
 Choosing the algorithms for this project was not difficult. I selected TF-IDF+kNN and LDA+kNN as my main topic-modeling algorithms. TF-IDF is straight-forward to understand and code. LDA is more difficult to code and is actually a topic model. Luckily, open source projects exist where an algorithm is already provided, which I quickly opted to use.
 
-Given that I had prior experience using Gibbs Sampling to generate LDA models (\[TODO: Cite here.\]) using the open source mallet toolkit (\[TODO: cite here\]), the choice to select that was logistical (optimizing to let me have time to spend on other areas of this work). EM lends itself to parallelization, but on my dataset, I knew that Gibbs Sampling would only take about 10 minutes to run, which is not an issue. The cost-benefit of changing algorithms was too high, at least when it comes to building the LDA model via parallelized algorithm. In my case, I used the mallet toolbox (\[TODO: cite in introduction\]) which provides the Gibbs Sampling algorithm to estimate the LDA model.
+Given that I had prior experience using Gibbs Sampling to generate LDA models ([TODO: Cite here.]) using the open source mallet toolkit ([TODO: cite here]), the choice to select that was logistical (optimizing to let me have time to spend on other areas of this work). EM lends itself to parallelization, but on my dataset, I knew that Gibbs Sampling would only take about 10 minutes to run, which is not an issue. The cost-benefit of changing algorithms was too high, at least when it comes to building the LDA model via parallelized algorithm. In my case, I used the mallet toolbox ([TODO: cite in introduction]) which provides the Gibbs Sampling algorithm to estimate the LDA model.
 
 % TODO: Double check whether Jenson-Shannon was used (check prospectus).
 % TODO: Add more algorithm notes here and move this table to a better location.
