@@ -1,5 +1,20 @@
 \chapter{Methodology} \label{chp:chapter2}
 
+/section{Overview}
+
+I will combine the methods used by Hall et al. (2008) and Krstovski (2013) to the Corpus of LDS General Conference talks. I will then compare performance to that of an TF-IDF model using some of the metrics outlined by Ge et al. (2010) along with an nDCG similarity measure. This involves comparing an LDA- based recommendation system to an off-the-shelf TF-IDF recommendation system. Both systems will be parameterized such that they provide the top 5 recommendations for each document. I will use Collapsed Gibbs Sampling to induce parameters for an LDA (topic) model, then feed this output into a k-NN algorithm (k = 5). For k-NN’s distance metric, I will use Hellinger distance. The 5 nearest neighbors will then be sorted from nearest neighbor to farthest. This is the output that will be compared to the top 5 results for each document TF-IDF system.
+
+The dataset contains the same documents as those used by Mark Davies in his Corpus of LDS General Conference talks available at http://corpus.byu.edu/gc/. The authorship dates for these talks are ranges of either 1846-1886 or 1942-2013. They total over 1400 talks. Some were extemporaneously given while others were scripted. The intended audience is generally only either the male members of the church, female members of the church, or the entire church. The size and the extent of internationality of the audience is increasing over time. The LDS church currently has over 15 million members, with the majority outside the United States.
+
+To measure the performance of RelRec, I performed the following key tasks.
+
+\begin{enumerate}
+	\item Use \textit{Collapsed Gibbs Sampling} to infer the parameters of an LDA model;
+	\item Use the Mallet toolkit will be used to run collapsed Gibbs sampling;
+	\item Use k-NN with the Hellinger distance as the distance metric for RelRec; and
+	\item Use nDCG to measure similarity with a TF-IDF system catalog coverage.
+\end{enumerate}
+
 \section{Reproducibility}
 In order to be able to reproduce, share, and track work performed in the process of completing this thesis, I versioned code using git. I employed the use of both cutting edge tools as well as well-established ones. The result is code that is both highly capable and easy to follow. Ultimately, I aimed to make the code highly configurable, re-runable, measurable, and shareable.
 
@@ -74,3 +89,10 @@ The core of this project came down to organization, good testing (to ensure bug-
 To evaluate the recommendations provided as output from the ordered kNN results, a common metric had to be employed. I chose to measure the goodness of each set using the catalog coverage metric. % TODO: remove passive voice here.
 
 For reproducibility, the following table shows the values, settings, and configurations selected for the algorithms.
+
+By using the aforementioned metrics, this study aims to prove the following hypothesis
+	\begin{quote}
+		$H_{1}:$ \emph{RelRec} will provide better coverage than a \emph{TF-IDF} system.
+
+		%$H_{2}:$ RelRec is more intuitive than emph recommendation systems since it has greater ability to disambiguate word sense by topic.
+	\end{quote}

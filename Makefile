@@ -7,17 +7,14 @@ build:
 	@-make simpleClean
 
 publish:
-	@echo "Copying to build folder."
+	@echo "Copying in build folder."
 	cp build/master.pdf build/thesis-LDS_SCI_Recommender_Systems-Michael_Bean.pdf
 
 master.pdf: master.tex refs.bib
-	# Makes images work, but biblio section is missing.
-	# Make sure to hit enter when errors appear...
 	pdflatex master
 	bibtex master
 	pdflatex master
 	pdflatex master
-
 
 	# # Seems to make references work (referenced with numbers), but biblio section and images are missing.
 	# latex master.tex
@@ -35,7 +32,7 @@ master.pdf: master.tex refs.bib
 	# lualatex master
 
 	@echo "================================================"
-	@echo "All done! project.pdf has been created."
+	@echo "All done! PDF has been created."
 	@echo "================================================"
 
 simpleClean:
