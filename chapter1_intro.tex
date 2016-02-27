@@ -1,7 +1,37 @@
+
+
+
+
+
+
+
+
+
+
+
+
 \chapter{Introduction}
-You have probably heard that the amount of digital data is increasing at alarming rates each year. It is difficult to pin down the actual rate. BBC says ``Some say that about 90\% of all the data in the world today has been created in the past few years...According to computer giant IBM, 2.5 exabytes - that's 2.5 billion gigabytes (GB) - of data was generated every day in 2012. That's big by anyone's standards. ‘About 75\% of data is unstructured, coming from sources such as text, voice and video,’ says Mr Miles.'' I worked for a while at a company that stores backups of data. The amount of data they were storing reached 20 PB!
+The Corpus of LDS General Conference talks (\emph{CLDSGCT}) increases bi-annually \cite{davies:gc}. Currently, it consists of over 1400 talks. Members of the Church of Jesus Christ of Latter-day Saints are admonished to study from these General Conference talks, but the ability to navigate through them and make connections becomes increasingly difficult over time as the amount of information increases. Advanced search and recommendation systems could be used to alleviate this challenge.
+
+At least 2 websites exist that allow members of the LDS community and the general public to search for talks by keyword, date of authorship, and even speaker. They are (1) LDS.org which is the official website for the LDS church and (2) scriptures.byu.edu which is provided by Brigham Young University, a private school owned by the LDS church. LDS.org attempts to support topic-based searches (e.g. ``Talks on Faith''), but rather than searching by topic, users perform the search in a restricted ``talks'' space. The only way the site seems to allow users to search by topic is by year, so in order to find a list of all talks with a given topic tag (e.g. ‘Faith’), a user would need to load over 88 webpages. Both LDS.org and scriptures.byu.edu provide Lucene-like search functionality \cite{McCandless:2010:LAS:1893016,lucene:luke} and cross-references, but neither website provides a recommendation system nor a topical index for General Conference talks.
+
+One way to find relevant documents is to use discovery-based techniques. These contrast with search-based techniques such as query search since results can be computed before a user actively makes a request. Readily available examples of are the use of product recommendation systems in commerce websites, for example Amazon.com. Specialized machine learning algorithms can automatically cluster data. Distance metrics measure how close each point within the cluster is to the others. From these distances, another algorithm can conclude which documents are most relevant for every other document. Depending on the application, clustering and ranking algorithms run online or offline. Recommendation systems are a form of discovery-based techniques. None appear to exist for CLDSGCT.
+
+This thesis will provide a recommendation system, RelRec, for General Conference talks. The system will leverage inferred topical content when computing distances between documents. A side benefit of the system is that intermediate output could be used to provide a topical index in any website that has General Conference talks. The parameters of the the topic model will be inferred via (Collapsed) Gibbs Sampling (Porteous et al., 2008), although Variation Inference could be used as well (Blei et al., 2006). RelRec will be an LDA + k-NN system, trained for General Conference talks. Since no recommendation system exists in this domain, it represents a novel application. In order to maintain a streamlined experience for website end-users, I will use offline forms of clustering and ranking. I will compare the performance of this system with that of an off-the-shelf TF-IDF recommendation system, which represents a recognized baseline.
+
+Since TF-IDF makes no effort to differentiate between word senses and homographs, I hypothesize that RelRec will outperform TF-IDF in all benchmarks since token-topic assignments assigned by Collapsed Gibbs Sampling can be seen as a type of disambiguation.
+
+The performance of RelRec versus the TF-IDF system will be measured across 3 metrics, 1 of which is a benchmark while the other two are comparative. The metrics will measure similarity, serendipity, and coverage. Based on the 1 benchmark, coverage, I will conclude which system is best. The similarity metric is meant to lend credence to either method, assuming that (1) the other is a well-accepted recommendation method and (2) the similarity level is high. I am open to modifying this portion of the thesis, of course; if I encounter other sensible metrics, I will consider applying them to the output of the two systems.
+
+
+
+
+[You have probably heard that the amount of digital data is increasing at alarming rates each year. It is difficult to pin down the actual rate. BBC says ``Some say that about 90\% of all the data in the world today has been created in the past few years...According to computer giant IBM, 2.5 exabytes - that's 2.5 billion gigabytes (GB) - of data was generated every day in 2012. That's big by anyone's standards. ‘About 75\% of data is unstructured, coming from sources such as text, voice and video,’ says Mr Miles.'' I worked for a while at a company that stores backups of data. The amount of data they were storing reached 20 PB!]
 
 With so much digital data, much of which is unstructured, it becomes necessary to assist users of data to sift through and learn from data leveraging computers to perform some of the tasks. One way to expose data is to allow users to search via query. Another way is by recommendation. In this thesis, I compare two recommendation systems and systematically select the best for use on the (unstructured) textual data I have, in preparation for potential enhancements to the website \url{http://scriptures.byu.edu} (hereafter, LDS Scripture Citation Index, or simply LDS SCI).
+
+
+
 
 Before proceeding, I will preface that I endeavor to provide URL hyperlinks whenever possible so the reader can easily replicate this work, which seems fitting since this work aims to enhance the web community.
 
@@ -74,7 +104,23 @@ Of those, the first one that refers to directly to a law of health is the 4th re
 
 While search query optimization would be one way to improve this area, I chose to augment the LDS SCI toolset with recommendation features. The idea was that once a reader locates a discourse of interest, it would be helpful to provide a list of similar discourses as a list. The list could default to displaying 5, but the user could interact with the result and request additional results. There are many ways to approach this that I will explain.
 
+Attempting to do the same for all portions of the process, Bean (2013) used a combined approach of gene sequence alignments and machine learning to automatically identify alignment positions of intertext. Topic modeling was not used which might explain why the system performed poorly. Word sense disambiguation was not used either, but WordNet synsets were used (Fellbaum, 1998). The corpus was religious in nature. Some of the documents had been translated manually, which probably introduced a significant amount of noise. Like the work of Hilton III, Bean’s work could probably have benefited from the use of LDA or word sense disambiguation.
+
 \section{Recommender Systems}
+
+In this section I give a sampling of topics to be more fully explored in the full thesis document.
+One way to produce recommendations for textual data is by using post-hoc methods built on topic modeling (Blei, 2012). One well-known topic model is Latent Dirichlet Allocation, or LDA, which is a model of word-topic assignments. From this model post-hoc algorithms extract various meta-data including probability of a topic (overall or in a document), and probability of a word in a topic. This step is fast and effective. Given a probability distribution over topics, machine learning approaches including nearest neighbor approaches (e.g. k-NN) can locate the most relevant documents. Since probability distributions are points that exist within the Probability Simplex, or T-space (Krstovski et al., 2013) metrics suited for the space such as the Jensen-Shannon divergence or the Hellinger distance are viable metrics for determining distance between points. Distance is interpreted as dissimilarity (i.e. closer points are considered more similar than two distant points).
+
+Topic models are not required for document recommendation. Algorithms that use token frequency and inverse document frequency, or TF-IDF, can also be used. In such cases, documents with the similar distributions of keywords can be considered similar.
+
+A subset of topic modeling aims to analyze topical trends over time. Such work includes that of Hall et al. (2008) where entropy, applied on chronological disjoint sets of texts, is used as a metric of showing broadening/narrowing of topics over time. They demonstrated that the Jensen-Shannon divergence between venue pairings1 could be used to measure level of similarity. They aptly demonstrated that topic entropy, when applied to topics on a per-year basis, could be used to describe the ebb and flow of each topic’s popularity over time. As a result, entropy of entire scholarly conferences can be plotted over time and compared. They showed that two separate conferences were converging to the have similar entropy of topics as time progressed.
+
+In precursory work, by following the methods outlined by Hall et al. (2008), I found that the same technique could be generalized further. Instead of dividing data into venues based on conference, I divided based on gender of author, then further divided based on year of authorship. Like this work, LDA was run on this same dataset. After some trial and error, I determined that 150 was appropriate for the number of expected topics (Bean and Ringger, 2013).
+
+Krstovski (2013) shows that it is possible to efficiently apply speed-up k-NN algorithms to the other- wise slow process of obtaining the closest k neighbors. Although they primarily tested their hypothesis using contrived datasets, it is convincing enough for us to use the same distance metric in this work. In the probability simplex where probability distributions are over topics, this the distance metric shows how similar two documents are in terms of topic content. When running k-NN, whenever two documents are close to each other in the space, they are considered related.
+
+Less automated text mining on LDS religious documents includes Hilton III (2008). Hilton III aimed to discover what he calls intertextual similarity between authors of LDS-specific texts. In his work, he focused on The Book of Mormon, although he later demonstrated that the methodology could locate results between The Holy Bible and The Book of Mormon (Hilton III, obera). Although topic models were not employed in his work, it probably could have benefited from them. Computational methods were involved, but only for portions of the process.
+
 % TODO: Before referencing LDA, describe it or use longer name.
 Recommender systems, sometimes called recommendation systems, vary in the way that they are created. For this work, two possible systems stood out immediately for my use: LDA-based recommendation and TF-IDF based recommendation. The latter is straightforward, easy to implement, and uses the same metrics that the query search at LDS SCI uses. The LDA-based model brings additional features to the table, but does so indirectly. Every LDA is a distribution over distributions. In my case, for the model to be built, each word token is assigned to a 1 and only 1 topic. This can easily be collected and indexed, then exposed as a keyword frequency index for each topic. So on top of providing per-discourse recommendations, it could easily be used to create an index of topics, linkable to the documents with a large clustering of words in each topic! Since that was not a main focus in my work, I published the results of that at \url{http://bean5.github.io/lds-talks-by-topic/} for future use. The downside to LDA is that it is only a model. An algorithm to building the LDA model must be selected. Some algorithms include:
 
@@ -116,4 +162,10 @@ Core to this project is the use of docker. Dockers are Linux containers which th
 Docker has a growing community around it. In fact, Google has created an open source project called Kubernetes which aims to ``accelerate Dev and simplify Ops'' (\url{https://kubernetes.io/}). It is used under the covers for Container Engine, a Google cloud product. Although Linux containers have been around for some time now, the docker community has made it much more mainstream, especially for computing environments where scaling horizontally is important. Thus, companies such as Netflix, EMC find it highly beneficial. In my experience, Linux tools with growing communities are well backed, become robust, and tend to be both easy to use as well as empowering.
 Docker has quickly become that. Use in this thesis is one evidenced of its growing popularity. % TODO: Move to methodology section.
 
-\[TODO: Add more here.\]
+\section{Evaluation}
+
+Many metrics exist for the purpose of measuring \textit{goodness} of results. When ordered sets constitute the output, which is the case for search and discovery-based methods, \textit{precision} and \textit{recall} are two commonly trusted metrics. A way to balance them is to compute the F1 \textit{score} or \textit{f-measure}, which is simply the harmonic mean of the two. It is important to note that these metrics only work when a gold standard exists, e.g. when the best results are known a-priori for some test portion of the dataset. Metrics which do not require a gold standard include \textit{catalog coverage}. The \textit{serendipity} metric requires at least a baseline set of recommendations (Ge et al., 2010).
+
+Catalog coverage metrics show how good a system is at providing results throughout the system rather than favoring certain documents. \textit{Serendipity} measures how good a system is at producing results that are surprising rather than obvious. I will use the formulas as provided by and described by Ge et al. (2010).
+
+When \textit{comparing} the output sets of two systems, a gold standard does not have to exist. If the two perform similarly, they will have similar output. One can measure similarity using formulas in the nDCG family (Wang et al., 2013). This can lend credibility to either system if one tends to provide output that is similar to the already-accepted system.

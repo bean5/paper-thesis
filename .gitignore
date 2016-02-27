@@ -1,5 +1,6 @@
 cached/
 build/
+readings/
 *.zip
 *.acn
 *.acr
