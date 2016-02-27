@@ -141,6 +141,14 @@ Running a Gibbs Sampler long enough is guaranteed to converge to what is called 
 \section{LDA}
 LDA stands for latent dirichlet allocation. It is a model where each token within a document is tagged with 1 and only 1 topic. Each document is treated as a bag of words.
 
+\section{Evaluation}
+
+Many metrics exist for the purpose of measuring \textit{goodness} of results. When ordered sets constitute the output, which is the case for search and discovery-based methods, \textit{precision} and \textit{recall} are two commonly trusted metrics. A way to balance them is to compute the F1 \textit{score} or \textit{f-measure}, which is simply the harmonic mean of the two. It is important to note that these metrics only work when a gold standard exists, e.g. when the best results are known a-priori for some test portion of the dataset. Metrics which do not require a gold standard include \textit{catalog coverage}. The \textit{serendipity} metric requires at least a baseline set of recommendations (Ge et al., 2010).
+
+Catalog coverage metrics show how good a system is at providing results throughout the system rather than favoring certain documents. \textit{Serendipity} measures how good a system is at producing results that are surprising rather than obvious. I will use the formulas as provided by and described by Ge et al. (2010).
+
+When \textit{comparing} the output sets of two systems, a gold standard does not have to exist. If the two perform similarly, they will have similar output. One can measure similarity using formulas in the nDCG family (Wang et al., 2013). This can lend credibility to either system if one tends to provide output that is similar to the already-accepted system.
+
 \section{Problems}
 \[TODO: Complete this section.\]
 
@@ -150,11 +158,3 @@ Core to this project is the use of docker. Dockers are Linux containers which th
 % TODO: Cite quote instead of linking
 Docker has a growing community around it. In fact, Google has created an open source project called Kubernetes which aims to ``accelerate Dev and simplify Ops'' (\url{https://kubernetes.io/}). It is used under the covers for Container Engine, a Google cloud product. Although Linux containers have been around for some time now, the docker community has made it much more mainstream, especially for computing environments where scaling horizontally is important. Thus, companies such as Netflix, EMC find it highly beneficial. In my experience, Linux tools with growing communities are well backed, become robust, and tend to be both easy to use as well as empowering.
 Docker has quickly become that. Use in this thesis is one evidenced of its growing popularity. % TODO: Move to methodology section.
-
-\section{Evaluation}
-
-Many metrics exist for the purpose of measuring \textit{goodness} of results. When ordered sets constitute the output, which is the case for search and discovery-based methods, \textit{precision} and \textit{recall} are two commonly trusted metrics. A way to balance them is to compute the F1 \textit{score} or \textit{f-measure}, which is simply the harmonic mean of the two. It is important to note that these metrics only work when a gold standard exists, e.g. when the best results are known a-priori for some test portion of the dataset. Metrics which do not require a gold standard include \textit{catalog coverage}. The \textit{serendipity} metric requires at least a baseline set of recommendations (Ge et al., 2010).
-
-Catalog coverage metrics show how good a system is at providing results throughout the system rather than favoring certain documents. \textit{Serendipity} measures how good a system is at producing results that are surprising rather than obvious. I will use the formulas as provided by and described by Ge et al. (2010).
-
-When \textit{comparing} the output sets of two systems, a gold standard does not have to exist. If the two perform similarly, they will have similar output. One can measure similarity using formulas in the nDCG family (Wang et al., 2013). This can lend credibility to either system if one tends to provide output that is similar to the already-accepted system.
