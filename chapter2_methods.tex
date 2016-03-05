@@ -6,19 +6,19 @@ I will combine the methods used by \citeyearpar{hall-jurafsky-manning:2008:EMNLP
 %Hall et al. (2008)
 and \citeyearpar{Krstovski2013efficient}
 %Krstovski (2013)
-to the Corpus of LDS General Conference talks. I will then compare performance to that of an TF-IDF model using some of the metrics outlined by \citeyearpar{Ge:2010:BAE:1864708.1864761}
+to the Corpus of LDS General Conference talks. I will then compare performance to that of an \emph{TF-IDF} model using some of the metrics outlined by \citeyearpar{Ge:2010:BAE:1864708.1864761}
 %Ge et al. (2010)
-along with an \emph{nDCG} similarity measure. This involves comparing an LDA-based recommendation system to an off-the-shelf TF-IDF recommendation system. Both systems will be parameterized such that they provide the top 5 recommendations for each document. I will use Collapsed Gibbs Sampling to induce parameters for an LDA (topic) model, then feed this output into a k-NN algorithm (k = 5). For k-NN’s distance metric, I will use Hellinger distance. The 5 nearest neighbors will then be sorted from nearest neighbor to farthest. This is the output that will be compared to the top 5 results for each document TF-IDF system.
+along with an \emph{nDCG} similarity measure. This involves comparing an LDA-based recommendation system to an off-the-shelf \emph{TF-IDF} recommendation system. Both systems will be parameterized such that they provide the top 5 recommendations for each document. I will use Collapsed Gibbs Sampling to induce parameters for an LDA (topic) model, then feed this output into a k-NN algorithm (k = 5). For k-NN’s distance metric, I will use Hellinger distance. The 5 nearest neighbors will then be sorted from nearest neighbor to farthest. This is the output that will be compared to the top 5 results for each document \emph{TF-IDF} system.
 
 The dataset contains the same documents as those used by Mark Davies in his Corpus of LDS General Conference talks available at http://corpus.byu.edu/gc/. The authorship dates for these talks are ranges of either 1846-1886 or 1942-2013. They total over 1400 talks. Some were extemporaneously given while others were scripted. The intended audience is generally only either the male members of the church, female members of the church, or the entire church. The size and the extent of internationality of the audience is increasing over time. The LDS church currently has over 15 million members, with the majority outside the United States.
 
-To measure the performance of RelRec, I performed the following key tasks.
+To measure the performance of \emph{RelRec}, I performed the following key tasks.
 
 \begin{enumerate}
 	\item Use \textit{Collapsed Gibbs Sampling} to infer the parameters of an LDA model;
 	\item Use the Mallet toolkit will be used to run collapsed Gibbs sampling;
-	\item Use k-NN with the Hellinger distance as the distance metric for RelRec; and
-	\item Use nDCG to measure similarity with a TF-IDF system catalog coverage.
+	\item Use k-NN with the Hellinger distance as the distance metric for \emph{RelRec}; and
+	\item Use nDCG to measure similarity with a \emph{TF-IDF} system catalog coverage.
 \end{enumerate}
 
 \section{Reproducibility}
@@ -60,7 +60,7 @@ Core to this project was the use docker. Choosing to use docker forced me to cod
 \subsection{Models, Algorithms \& Metrics}
 Choice of algorithm \& metrics go hand-in-hand. In fact, algorithm and data can often influence each other, further influencing the selection of metrics. For example, if I were to have a gold standard or baseline of recommendation engines for the 5000+ documents used in this project, I would be able to use nDCG as a metric. Since I do not have such a baseline, such a metric cannot be used. Per xyz, I use catalog coverage, allowing the comparison of two non-baseline algorithms.
 
-Choosing the algorithms for this project was not difficult. I selected TF-IDF+kNN and LDA+kNN as my main topic-modeling algorithms. TF-IDF is straight-forward to understand and code. LDA is more difficult to code and is actually a topic model. Luckily, open source projects exist where an algorithm is already provided, which I quickly opted to use.
+Choosing the algorithms for this project was not difficult. I selected \emph{TF-IDF}+kNN and LDA+kNN as my main topic-modeling algorithms. \emph{TF-IDF} is straight-forward to understand and code. LDA is more difficult to code and is actually a topic model. Luckily, open source projects exist where an algorithm is already provided, which I quickly opted to use.
 
 Given that I had prior experience using Gibbs Sampling to generate LDA models ([TODO: Cite here.]) using the open source mallet toolkit ([TODO: cite here]), the choice to select that was logistical (optimizing to let me have time to spend on other areas of this work). EM lends itself to parallelization, but on my dataset, I knew that Gibbs Sampling would only take about 10 minutes to run, which is not an issue. The cost-benefit of changing algorithms was too high, at least when it comes to building the LDA model via parallelized algorithm. In my case, I used the mallet toolbox ([TODO: cite in introduction]) which provides the Gibbs Sampling algorithm to estimate the LDA model.
 
@@ -77,12 +77,12 @@ Given that I had prior experience using Gibbs Sampling to generate LDA models ([
 		Gibbs Sampling & t & integer & 250 & Sets number of topics to find & In previous research I determined that 250 was a good number for this variable. \\ \hline
 
 		k-NN distance metric \\
-		for TF-IDF model & distance & function & Cosine & Distance metric allows algorithm to measure distance between documents in the model. & Intuitive and well-known. Others functions exist for this, but are left to future work to use. \\ \hline
+		for \emph{TF-IDF} model & distance & function & Cosine & Distance metric allows algorithm to measure distance between documents in the model. & Intuitive and well-known. Others functions exist for this, but are left to future work to use. \\ \hline
 
 		k-NN distance metric \\
 		for LDA model & distance & function & Jenson-Shannon & Distance metric allows algorithm to measure distance between documents in the model. & Well-known and works for vectors in the probability simplex. \\ \hline
 
-		TF-IDF & stop words & list of word strings & none & Sets words to ignore in model. & Assigns words a value of 0 TF and 0 IDF values or removes them altogether to shrink vector space and accelerate computing (depends on actual algorithm implementation). TF-IDF is robust against high-frequency words since they automatically receive low TF and low IDF values. \\ \hline
+		\emph{TF-IDF} & stop words & list of word strings & none & Sets words to ignore in model. & Assigns words a value of 0 TF and 0 IDF values or removes them altogether to shrink vector space and accelerate computing (depends on actual algorithm implementation). \emph{TF-IDF} is robust against high-frequency words since they automatically receive low TF and low IDF values. \\ \hline
 
 		Preparing input LDA & stop words & list of word strings & default mallet list + handful of religious words [TODO: which words?] & Removes stopwords at indexing time (module x [TODO: name exact module here]). & LDA is not super robust against common words. \\ \hline
 		normalization & to\_lower\_case & boolean & true & If true, tells algorithm to lowercase all text. & To allow all following algorithms to ignore case, the simplest way to do so was to lowercase everything before completing the data preparation core module. \\ \hline
@@ -90,7 +90,7 @@ Given that I had prior experience using Gibbs Sampling to generate LDA models ([
 \end{center}
 
 % TODO: cite instead of link?
-The core of this project came down to organization, good testing (to ensure bug-free code), and study of any tools that would end up being helpful in processing. kNN is a machine learning algorithm which as input requires the value for k and a selection of a distance metric. The output of TF-IDF and LDA are both in vectors, but LDA’s vectors lay within the probability simplex. Distance metrics had to be appropriate for the space. For TF-IDF vectors, I opted to use cosine similarity; for LDA, Jensen-Shannon (\url{https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence, http://maroo.cs.umass.edu/pub/web/getpdf.php?id=1101}). % TODO: (or was it Hellinger? \url{https://www.quora.com/How-can-I-compute-the-Hellinger-distance-between-documents-based-on-topic-proportions-generated-by-Latent-Dirichlet-Allocation}).
+The core of this project came down to organization, good testing (to ensure bug-free code), and study of any tools that would end up being helpful in processing. kNN is a machine learning algorithm which as input requires the value for k and a selection of a distance metric. The output of \emph{TF-IDF} and LDA are both in vectors, but LDA’s vectors lay within the probability simplex. Distance metrics had to be appropriate for the space. For \emph{TF-IDF} vectors, I opted to use cosine similarity; for LDA, Jensen-Shannon (\url{https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence, http://maroo.cs.umass.edu/pub/web/getpdf.php?id=1101}). % TODO: (or was it Hellinger? \url{https://www.quora.com/How-can-I-compute-the-Hellinger-distance-between-documents-based-on-topic-proportions-generated-by-Latent-Dirichlet-Allocation}).
 
 To evaluate the recommendations provided as output from the ordered kNN results, a common metric had to be employed. I chose to measure the goodness of each set using the catalog coverage metric. % TODO: remove passive voice here.
 
@@ -100,5 +100,5 @@ By using the aforementioned metrics, this study aims to prove the following hypo
 	\begin{quote}
 		$H_{1}:$ \emph{RelRec} will provide better coverage than a \emph{TF-IDF} system.
 
-		%$H_{2}:$ RelRec is more intuitive than emph recommendation systems since it has greater ability to disambiguate word sense by topic.
+		%$H_{2}:$ \emph{RelRec} is more intuitive than emph recommendation systems since it has greater ability to disambiguate word sense by topic.
 	\end{quote}
