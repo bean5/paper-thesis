@@ -2,7 +2,7 @@
 
 build:
 	@-make clean
-	-(docker-compose build && docker-compose run build)
+	-(docker-compose build build && docker-compose run build)
 	mv master.pdf build/
 	@-make simpleClean
 
