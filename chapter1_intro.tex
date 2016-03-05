@@ -140,16 +140,28 @@ LDA stands for latent dirichlet allocation. It is a model where each token withi
 
 Many metrics exist for the purpose of measuring \textit{goodness} of results. When ordered sets constitute the output, which is the case for search and discovery-based methods, \textit{precision} and \textit{recall} are two commonly trusted metrics. A way to balance them is to compute the F1 \textit{score} or \textit{f-measure}, which is simply the harmonic mean of the two. It is important to note that these metrics only work when a gold standard exists, e.g. when the best results are known a-priori for some test portion of the dataset. Metrics which do not require a gold standard include \textit{catalog coverage}. The \textit{serendipity} metric requires at least a baseline set of recommendations (Ge et al., 2010).
 
-Catalog coverage metrics show how good a system is at providing results throughout the system rather than favoring certain documents. \textit{Serendipity} measures how good a system is at producing results that are surprising rather than obvious. I will use the formulas as provided by and described by Ge et al. (2010).
+\emph{Catalog coverage} metrics show how good a system is at providing results throughout the system rather than favoring certain documents. \emph{Catalog coverage} does not require any baseline to exist. It is an intrinsic metric. \emph{Serendipity} measures how good a system is at providing results that are \textit{surprising} rather than \textit{obvious} \citep{Ge:2010:BAE:1864708.1864761}. \emph{Serendipity} requires a baseline to exist; it is an extrinsic metric. % I hoped to use the formulas as provided by and described by \cite{Ge:2010:BAE:1864708.1864761}, but Serendipity was not possible for use since no baseline existed.
 
-When \textit{comparing} the output sets of two systems, a gold standard does not have to exist. If the two perform similarly, they will have similar output. One can measure similarity using formulas in the nDCG family (Wang et al., 2013). This can lend credibility to either system if one tends to provide output that is similar to the already-accepted system.
+If the two perform similarly, they will have similar output. One can measure similarity using formulas in the nDCG family \citep{Wang:2006:TOT:1150402.1150450}. This can lend credibility to either system if one tends to provide output that is similar to the already-accepted system. However, this is an extrinsic metric; like \emph{serendipity}, it requires the use of a \textit{common} baseline. Two systems cannot be compared to each other without the presence of a third. If they use each other as proxy as the third, he overall nDCG value for each system ends up being the same.
+
 
 \section{Problems}
-\[TODO: Complete this section.\]
+
+[TODO: Complete this section.]
+
 
 \section{Open Source Tools: Docker, Mallet, npm}
-Core to this project is the use of docker. Dockers are Linux containers which the docker-engine (i.e. docker daemon) can build and run. They can be thought of as Linux virtual machines in some ways, although they tend to be resource/hardware agnostic since they simply share the kernel, RAM, and other hardware on the host on which they are run. They are considered lightweight since instead of running the full Linux stack for each container, only necessary files are run from within the container. This has made it easy for a new market to emerge where products that are software as a service (SaaS) can be hosted at a lower cost. Container Engine by Google (\url{https://cloud.google.com/container-engine/}) and tutum but Tutum (\url{https://www.tutum.co/}) are examples of this.
 
-% TODO: Cite quote instead of linking
-Docker has a growing community around it. In fact, Google has created an open source project called Kubernetes which aims to ``accelerate Dev and simplify Ops'' (\url{https://kubernetes.io/}). It is used under the covers for Container Engine, a Google cloud product. Although Linux containers have been around for some time now, the docker community has made it much more mainstream, especially for computing environments where scaling horizontally is important. Thus, companies such as Netflix, EMC find it highly beneficial. In my experience, Linux tools with growing communities are well backed, become robust, and tend to be both easy to use as well as empowering.
-Docker has quickly become that. Use in this thesis is one evidenced of its growing popularity. % TODO: Move to methodology section.
+\subsection{Docker\*}
+Now that algorithms and metrics have been discussed, we can move on to discussing tools that can be used to create reproducible, robust, systems.
+
+%Core to this project is the use of docker.
+Dockers are Linux containers which the docker-engine (i.e. docker daemon) can build and run. They can be thought of as Linux virtual machines in some ways, although they tend to be resource/hardware agnostic since they simply share the kernel, RAM, and other hardware on the host on which they are run. They are considered lightweight since instead of running the full Linux stack for each container, only necessary files are run from within the container. This has made it easy for a new market to emerge where products that are software as a service (SaaS) can be hosted at a lower cost. Container Engine by Google (\url{https://cloud.google.com/container-engine/}) and tutum by Tutum (\url{https://www.tutum.co/}) are examples of this.
+
+Docker has a growing community around it. In fact, Google has created an open source project called Kubernetes which aims to ``accelerate Dev and simplify Ops'' \citep{kube_website}. According to \cite{google_container_engine}, it is used under the covers for Container Engine, a Google cloud product. Although Linux containers have been around for some time now, the docker community has made it much more mainstream, especially for computing environments where scaling horizontally is important. Thus, companies such as Netflix and EMC find it highly beneficial. In the authors experience, Linux tools with growing communities are well backed, become robust, and tend to be both easy to use as well as empowering.
+
+\subsection{Mallet Toolbox}
+Mallet toolbox
+
+\subsection{Node Package Manager (NPM)}
+ \url{https://www.npmjs.com/}
