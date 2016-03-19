@@ -1,11 +1,11 @@
 build:
-  build: .
+  build: docker/
   command: make master.pdf
   working_dir: /main
   volumes:
     - './:/main'
 shell:
-  build: .
+  build: docker/
   command: bash
   working_dir: /main
   volumes:
