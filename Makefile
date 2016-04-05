@@ -1,4 +1,4 @@
-.PHONY: build publish simpleClean clean
+.PHONY: build publish
 
 build:
 	-(docker-compose build build && docker-compose run build)
