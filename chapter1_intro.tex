@@ -158,20 +158,3 @@ If the two perform similarly, they will have similar output. One can measure sim
 \section{Problems}
 
 [TODO: Complete this section.]
-
-
-\section{Open Source Tools: Docker, Mallet, npm}
-
-\subsection{Docker\*}
-Now that algorithms and metrics have been discussed, we can move on to discussing tools that can be used to create reproducible, robust, systems.
-
-%Core to this project is the use of docker.
-Dockers are Linux containers which the docker-engine (i.e. docker daemon) can build and run. They can be thought of as Linux virtual machines in some ways, although they tend to be resource/hardware agnostic since they simply share the kernel, RAM, and other hardware on the host on which they are run. They are considered lightweight since instead of running the full Linux stack for each container, only necessary files are run from within the container. This has made it easy for a new market to emerge where products that are software as a service (SaaS) can be hosted at a lower cost. Container Engine by Google (\url{https://cloud.google.com/container-engine/}) and tutum by Tutum (\url{https://www.tutum.co/}) are examples of this.
-
-Docker has a growing community around it. In fact, Google has created an open source project called Kubernetes which aims to ``accelerate Dev and simplify Ops'' (\citealp{kube_website}). According to \cite{google_container_engine}, it is used under the covers for Container Engine, a Google cloud product. Although Linux containers have been around for some time now, the docker community has made it much more mainstream, especially for computing environments where scaling horizontally is important. Thus, companies such as Netflix and EMC find it highly beneficial. In the authors experience, Linux tools with growing communities are well backed, become robust, and tend to be both easy to use as well as empowering.
-
-\subsection{Mallet Toolbox}
-Mallet toolbox
-
-\subsection{Node Package Manager (NPM)}
- \url{https://www.npmjs.com/}
