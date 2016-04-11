@@ -1,11 +1,15 @@
-.PHONY: build publish all prepTemp
+.PHONY: build publish all prepTemp publishWithDate
 
 build:
 	-(docker-compose build build && docker-compose run build)
 
 publish:
+	make publishWithDate date="$$(date +'%Y-%m-%d')"
+
+publishWithDate:
 	@echo "Copying in build folder."
-	cp build/compile_master.pdf build/thesis-LDS_SCI_Recommender_Systems-Michael_Bean.pdf
+	cp build/master.pdf build/master-LDS_SCI_Recommender_Systems-Michael_Bean\ $(date).pdf
+	cp build/literature_review.pdf build/literature_review-Michael_Bean\ $(date).pdf
 
 prepTemp:
 	mkdir /tmp/latex
@@ -15,7 +19,7 @@ prepTemp:
 
 all: prepTemp compile_master.tex refs.bib
 	make custom section=master
-	make custom section=abstract
+	# make custom section=abstract #abstract isn't actually a chapter, so compiling it separately doesn't work.
 	make custom section=intro
 	make custom section=intro_old
 	make custom section=literature_review
@@ -30,7 +34,7 @@ custom:
 	bibtex compile_$(section) && \
 	pdflatex compile_$(section) && \
 	pdflatex compile_$(section) && \
-	mv compile_$(section).pdf /main/build/
+	mv compile_$(section).pdf /main/build/$(section).pdf
 
 	# # Seems to make references work (referenced with numbers), but biblio section and images are missing.
 	# latex master.tex
