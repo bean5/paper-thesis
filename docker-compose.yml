@@ -1,6 +1,6 @@
 build:
   build: docker/
-  command: make master.pdf
+  command: make all
   working_dir: /main
   volumes:
     - './:/main'

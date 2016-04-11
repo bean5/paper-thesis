@@ -1,23 +1,36 @@
-.PHONY: build publish
+.PHONY: build publish all prepTemp
 
 build:
 	-(docker-compose build build && docker-compose run build)
 
 publish:
 	@echo "Copying in build folder."
-	cp build/master.pdf build/thesis-LDS_SCI_Recommender_Systems-Michael_Bean.pdf
+	cp build/compile_master.pdf build/thesis-LDS_SCI_Recommender_Systems-Michael_Bean.pdf
 
-master.pdf: master.tex refs.bib
+prepTemp:
 	mkdir /tmp/latex
-	cp -r * /tmp/latex/
 
 	# Move to temporary location that has copy of everything (less cleanup later)
+	cp -r * /tmp/latex/
+
+all: prepTemp compile_master.tex refs.bib
+	make custom section=master
+	make custom section=abstract
+	make custom section=intro
+	make custom section=intro_old
+	make custom section=literature_review
+	make custom section=methods
+	make custom section=results
+	make custom section=conclusion
+	make custom section=future_work
+
+custom:
 	cd /tmp/latex/ && \
-	pdflatex master && \
-	bibtex master && \
-	pdflatex master && \
-	pdflatex master && \
-	mv master.pdf /main/build/
+	pdflatex compile_$(section) && \
+	bibtex compile_$(section) && \
+	pdflatex compile_$(section) && \
+	pdflatex compile_$(section) && \
+	mv compile_$(section).pdf /main/build/
 
 	# # Seems to make references work (referenced with numbers), but biblio section and images are missing.
 	# latex master.tex
