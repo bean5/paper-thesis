@@ -297,8 +297,8 @@ http://www.emeraldinsight.com/action/showCitFormats?doi=10.1108%2F00220410410560
 %vi
 %lda
 @article{blei2006variational,
-	author={Blei, David M and Jordan, Michael I and others},
 	title={Variational inference for Dirichlet process mixtures},
+	author={Blei, David M and Jordan, Michael I and others},
 	journal={Bayesian analysis},
 	volume={1},
 	number={1},
@@ -532,6 +532,42 @@ http://www.emeraldinsight.com/action/showCitFormats?doi=10.1108%2F00220410410560
 	publisher = {JMLR.org},
 }
 
+% Probably duplicate of Blei:2003:LDA:944919.944937, but this one was referenced by arora
+% quoted by arora at http://cs.nyu.edu/~dsontag/papers/AroraEtAl_icml13.pdf
+% https://scholar.google.com/scholar?q=Blei+Latent+dirichlet+allocation+2003&btnG=&hl=en&as_sdt=0%2C45&as_vis=1
+@article{blei2003latent,
+	title={Latent dirichlet allocation},
+	author={Blei, David M and Ng, Andrew Y and Jordan, Michael I},
+	journal={Journal of machine Learning research},
+	volume={3},
+	number={Jan},
+	pages={993--1022},
+	year={2003}
+}
+
+% quoted by arora at http://cs.nyu.edu/~dsontag/papers/AroraEtAl_icml13.pdf
+% https://scholar.google.com/scholar?q=Blei+Latent+dirichlet+allocation+2003&btnG=&hl=en&as_sdt=0%2C45&as_vis=1
+@article{blei2007correlated,
+	title={A correlated topic model of science},
+	author={Blei, David M and Lafferty, John D},
+	journal={The Annals of Applied Statistics},
+	pages={17--35},
+	year={2007},
+	publisher={JSTOR}
+}
+
+% quoted by arora at http://cs.nyu.edu/~dsontag/papers/AroraEtAl_icml13.pdf
+% https://scholar.google.com/scholar?q=Pachinko+allocation%3A+Dagstructured+mixture+models+of+topic+correlations&btnG=&hl=en&as_sdt=0%2C45&as_vis=1
+% https://scholar.google.com/scholar.bib?q=info:QnEAo12_s-IJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAV27oLt1uTX9YxltS4OFWfUbD5WVqL_03&scisf=4&hl=en
+@inproceedings{li2006pachinko,
+	title={Pachinko allocation: DAG-structured mixture models of topic correlations},
+	author={Li, Wei and McCallum, Andrew},
+	booktitle={Proceedings of the 23rd international conference on Machine learning},
+	pages={577--584},
+	year={2006},
+organization={ACM}
+}
+
 %Is more advanced and would be a good next step, since some topics are connected with others (e.g. speaking on a topic of polynesians tends to bring up the topic of immigration)
 @misc{Blei06correlatedtopic,
 	author = {David M. Blei, John D. Lafferty},
@@ -556,15 +592,6 @@ The CTM gives a better fit than LDA on a collection of OCRed articles from the j
 	url = {http://www.cs.princeton.edu/~blei/papers/Blei2011.pdf},
 	abstract = {Probabilistic topic models are a suite of algorithms whose aim is to discover the hidden thematic structure in large archives of documents. In this article, we review the main ideas of this field, survey the current state-of-the-art, and describe some promisingfuture directions. We first describe latent Dirichlet allocation (LDA) [8], which is the simplest kind of topic model. We discuss its connections to probabilistic modeling,and describe two kinds of algorithms for topic discovery. We then survey the growing body of research that extends and applies topic models in interesting ways. These extensions have been developed by relaxing some of the statistical assumptions of LDA, incorporating meta-data into the analysis of the documents, and using similar kinds of models on a diversity of data types such as social networks, images and genetics. Finally, we give our thoughts as to some of the important unexplored directions for topic modeling. These include rigorous methods for checking models built for data exploration, new approaches to visualizing text and other high dimensional data, and moving beyond traditional information engineering applications towards using topic models for more scientific ends.},
 	annote = {This handbook is 16 pages long and covers an introduction to the suite of algorithms known as Probabilistic topic models whose ``aim is to discover the hidden thematic structure in large archives of documents.'' This survey includes the current state-of-the-art, and describe some promising future directions....LDA...and describe two kinds of algorithms for topic discovery. We then survey the growing body of research that extends and applies topic models in interesting ways. These extensions have been developed by relaxing some of the statistical assumptions of LDA, incorporating meta-data into the analysis of the documents, and using similar kinds of models on a diversity of data types such as social networks, images and genetics.'' Future directions are also described including ``rigorous methods for checking models built for data exploration, new approaches to visualizing text..., and moving beyond traditional information engineering applications towards using topic models for more scientific ends.''}
-}
-
-@misc{Blei2006Dynamic,
-	author = {David M. Blei and John D. Lafferty},
-	title = {Dynamic Topic Models},
-	year = {2006},
-	url = {http://dl.acm.org/ft_gateway.cfm?id = 1143859&ftid = 364240&dwn = 1&CFID = 251978667&CFTOKEN = 17214624},
-	abstract = {A family of probabilistic time series models is developed to analyze the time evolution of topics in large document collections. The approach is to use state space models on the natural parameters of the multinomial distributions that represent the topics. Variational approximations based on Kalman filters and nonparametric wavelet regression are developed to carry out approximate posterior inference over the latent topics. In addition to giving quantitative, predictive models of sequential corpus, dynamic topic models provide a qualitative window into the contents of a large document collection. The models are demonstrated by analyzing the OCR’ed archives of the journal Science from 1880 through 2000.},
-	annote = {``A family of probabilistic time series models is developed to analyze the time evolution of topics in large document collections....In addition to giving quantitative, predictive models of sequential corpus, dynamic topic models provide a qualitative window into the contents of a large document collection.'' The models are by analyzing 120 120 years of journals.}
 }
 
 @inproceedings{Newman10automaticevaluation,
@@ -961,106 +988,118 @@ Although the texts are far removed from the type of texts that I will encounter,
 	keywords = {boltzmann machines, cold start, collaborative filtering, content-based filtering, recommender systems}
 }
 
+% May not need isbn or pages
+% https://scholar.google.com/scholar.bib?q=info:CkCMQxhSp8kJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAV27awvOfgi_1ySidyOlHfPPt5bOqjIQN&scisf=4&hl=en
+% https://scholar.google.com/scholar?q=9780521180788&btnG=&hl=en&as_sdt=0%2C45
+% https://en.wikipedia.org/wiki/Bayes%27_theorem#cite_note-1
 
-
-
-
-
-
-
-
-
-% TODO: Remove the follow references as they are just part of the template.
-
-@PHDTHESIS{,
-  AUTHOR =       {},
-  TITLE =        {},
-  SCHOOL =       {},
-  YEAR =         {},
-  type =         {},
-  address =      {},
-  month =        {},
-  note =         {},
-  abstract =     {},
-  keywords =     {},
-  source =       {}
+@book{jeffreys1973scientific,
+  title={Scientific inference},
+  author={Jeffreys, Harold},
+  pages = {31},
+  isbn = {978-0-521-18078-8},
+  year = {1973},
+  publisher={Cambridge University Press}
 }
 
-@MASTERSTHESIS{,
-  AUTHOR =       {},
-  TITLE =        {},
-  SCHOOL =       {},
-  YEAR =         {},
-  type =         {},
-  address =      {},
-  month =        {},
-  note =         {},
-  abstract =     {},
-  keywords =     {},
-  source =       {}
+% LDA + other uses
+@inproceedings{boyd2007topic,
+	title={A Topic Model for Word Sense Disambiguation.},
+	author={Boyd-Graber, Jordan L and Blei, David M and Zhu, Xiaojin},
+	booktitle={EMNLP-CoNLL},
+	pages={1024--1033},
+	year={2007}
+}
+@incollection{NIPS2010_3902,
+	title = {Online Learning for Latent Dirichlet Allocation},
+	author = {Matthew Hoffman and Francis R. Bach and David M. Blei},
+	booktitle = {Advances in Neural Information Processing Systems 23},
+	editor = {J. D. Lafferty and C. K. I. Williams and J. Shawe-Taylor and R. S. Zemel and A. Culotta},
+	pages = {856--864},
+	year = {2010},
+	publisher = {Curran Associates, Inc.},
+	url = {http://papers.nips.cc/paper/3902-online-learning-for-latent-dirichlet-allocation.pdf}
+}
+@inproceedings{teh2006collapsed,
+	title={A collapsed variational Bayesian inference algorithm for latent Dirichlet allocation},
+	author={Teh, Yee W and Newman, David and Welling, Max},
+	booktitle={Advances in neural information processing systems},
+	pages={1353--1360},
+	year={2006}
 }
 
-@ARTICLE{,
-  AUTHOR =       {},
-  TITLE =        {},
-  JOURNAL =      {},
-  YEAR =         {},
-  volume =       {},
-  number =       {},
-  pages =        {},
-  month =        {},
-  note =         {},
-  keywords =     {},
-  abstract =     {}
+%% Beyond LDA
+% http://cs.nyu.edu/~dsontag/papers/AroraEtAl_icml13.pdf
+% https://scholar.google.com/scholar?q=A+Practical+Algorithm+for+Topic+Modeling+with+Provable+Guarantees&btnG=&hl=en&as_sdt=0%2C45&as_vis=1
+% https://scholar.google.com/scholar.bib?q=info:HPafimh19ygJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAV27gpz3PNDppGeXfK0qvVtvqFAQpVfao&scisf=4&hl=en
+@inproceedings{arora2013practical,
+	title={A Practical Algorithm for Topic Modeling with Provable Guarantees.},
+	author={Arora, Sanjeev and Ge, Rong and Halpern, Yonatan and Mimno, David M and Moitra, Ankur and Sontag, David and Wu, Yichen and Zhu, Michael},
+	booktitle={ICML (2)},
+	pages={280--288},
+	year={2013}
 }
 
-@BOOK{,
-  AUTHOR =       {},
-  editor =       {},
-  TITLE =        {},
-  PUBLISHER =    {},
-  YEAR =         {},
-  volume =       {},
-  number =       {},
-  series =       {},
-  address =      {},
-  edition =      {},
-  month =        {},
-  note =         {},
-  price =        {},
-  keywords =     {},
-  abstract =     {},
-  isbn =         {},
-  source =       {}
+% cited by arora et al. at: http://cs.nyu.edu/~dsontag/papers/AroraEtAl_icml13.pdf
+% https://scholar.google.com/scholar?q=Learning+topic+models+going+beyond+svd+arora&btnG=&hl=en&as_sdt=0%2C45&as_vis=1
+% https://scholar.google.com/scholar.bib?q=info:z831WDGPz6EJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAV27pPhIyVKJwUos-BcXHc7RiOAPr32aM&scisf=4&hl=en
+@inproceedings{arora2012learning,
+	title={Learning topic models--going beyond SVD},
+	author={Arora, Sanjeev and Ge, Rong and Moitra, Ankur},
+	booktitle={Foundations of Computer Science (FOCS), 2012 IEEE 53rd Annual Symposium on},
+	pages={1--10},
+	year={2012},
+	organization={IEEE}
 }
 
-@INPROCEEDINGS{,
-  AUTHOR =       {},
-  TITLE =        {},
-  BOOKTITLE =    {},
-  YEAR =         {},
-  editor =       {},
-  volume =       {},
-  number =       {},
-  series =       {},
-  pages =        {},
-  address =      {},
-  month =        {},
-  organization = {},
-  publisher =    {},
-  note =         {},
-  keywords =     {},
-  abstract =     {}
+%% DNA + LDA
+% http://www.genetics.org/content/155/2/945
+@article {Pritchard945,
+	author = {Pritchard, Jonathan K. and Stephens, Matthew and Donnelly, Peter},
+	title = {Inference of Population Structure Using Multilocus Genotype Data},
+	volume = {155},
+	number = {2},
+	pages = {945--959},
+	year = {2000},
+	publisher = {Genetics},
+	abstract = {We describe a model-based clustering method for using multilocus genotype data to infer population structure and assign individuals to populations. We assume a model in which there are K populations (where K may be unknown), each of which is characterized by a set of allele frequencies at each locus. Individuals in the sample are assigned (probabilistically) to populations, or jointly to two or more populations if their genotypes indicate that they are admixed. Our model does not assume a particular mutation process, and it can be applied to most of the commonly used genetic markers, provided that they are not closely linked. Applications of our method include demonstrating the presence of population structure, assigning individuals to populations, studying hybrid zones, and identifying migrants and admixed individuals. We show that the method can produce highly accurate assignments using modest numbers of loci{\textemdash}e.g., seven microsatellite loci in an example using genotype data from an endangered bird species. The software used for this article is available from http://www.stats.ox.ac.uk/~pritch/home.html.},
+	issn = {0016-6731},
+	URL = {http://www.genetics.org/content/155/2/945},
+	eprint = {http://www.genetics.org/content/155/2/945.full.pdf},
+	journal = {Genetics}
 }
 
-@MISC{,
-  author =       {},
-  title =        {},
-  howpublished = {},
-  year =         {},
-  month =        {},
-  note =         {},
-  abstract =     {},
-  keywords =     {},
-  source =       {}
+% https://scholar.google.com/scholar.bib?q=info:xRYV2hh2k8EJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAV27eOYn3-zWeakepalnjySFrRvT3nRrg&scisf=4&hl=en
+@article{huelsenbeck2006dirichlet,
+	title={A Dirichlet process model for detecting positive selection in protein-coding DNA sequences},
+	author={Huelsenbeck, John P and Jain, Sonia and Frost, Simon WD and Pond, Sergei L Kosakovsky},
+	journal={Proceedings of the National Academy of Sciences},
+	volume={103},
+	number={16},
+	pages={6263--6268},
+	year={2006},
+	publisher={National Acad Sciences}
+}
+
+% https://scholar.google.com/scholar.bib?q=info:oSF1VsYicgcJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAV27eHmZwsztuStXGcYZGhRhJXRfJFooK&scisf=4&hl=en
+@article{shivashankar2011multi,
+	title={Multi-view methods for protein structure comparison using latent dirichlet allocation},
+	author={Shivashankar, S and Srivathsan, S and Ravindran, Balaraman and Tendulkar, Ashish V},
+	journal={Bioinformatics},
+	volume={27},
+	number={13},
+	pages={i61--i68},
+	year={2011},
+	publisher={Oxford Univ Press}
+}
+
+% @article{anthes2010topic,
+	title={Topic models vs. unstructured data},
+	author={Anthes, Gary},
+	journal={Communications of the ACM},
+	volume={53},
+	number={12},
+	pages={16--18},
+	year={2010},
+	publisher={ACM}
 }
