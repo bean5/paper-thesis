@@ -1,0 +1,44 @@
+\appendix{Tools \& Links}
+\label{tools+links}
+
+\section{Open-Source Tools: Docker, Mallet, npm}
+
+\subsection{Docker*}
+Now that algorithms and metrics have been discussed, we can move on to discussing tools that can be used to create reproducible, robust, systems.
+
+%Core to this project is the use of docker.
+Dockers are Linux containers which the docker-engine (i.e. docker daemon) can build and run. They can be thought of as Linux virtual machines in some ways, although they tend to be resource/hardware agnostic since they simply share the kernel, RAM, and other hardware on the host on which they are run. They are considered lightweight since instead of running the full Linux stack for each container, only necessary files are run from within the container. This has made it easy for a new market to emerge where products that are software as a service (SaaS) can be hosted at a lower cost. Container Engine by Google (\url{https://cloud.google.com/container-engine/}) and tutum by Tutum (\url{https://www.tutum.co/}) are examples of this.
+
+Docker has a growing community around it. In fact, Google has created an open-source project called Kubernetes which aims to ``accelerate Dev and simplify Ops'' \citep{kube_website}. According to \citet{google_container_engine}, it is used under the covers for Container Engine, a Google cloud product. Although Linux containers have been around for some time now, the docker community has made it much more mainstream, especially for computing environments where scaling horizontally is important. Thus, companies such as Netflix and EMC find it highly beneficial. In the authors experience, Linux tools with growing communities are well backed, become robust, and tend to be both easy to use as well as empowering.
+
+\subsection{Mallet Toolbox}
+Mallet toolbox
+
+\subsection{Node Package Manager (NPM)}
+ \url{https://www.npmjs.com/}
+
+% Consider not using comma-delimiting
+\begin{center}
+	\begin{tabular}[pos]{| l | l | l |}
+		\hline
+		Tool/Library & Use & Link \\ \hline
+		git & code versioning; code sharing & \url{https://git-scm.com/about} \\ \hline
+		Latex, Google Docs, Microsoft Office & Composing this document & \url{https://www.latex-project.org/}, \url{https://docs.google.com}, \url{https://products.office.com/en-us/word} \\ \hline
+		AntConc & Indexing of files to locate high-frequency words later used as stop words. & \url{http://www.laurenceanthony.net/software/antconc/} \\ \hline
+		``docker'' (docker daemon, docker-compose, docker containers) & Containerization and modularization of each module such that when running, code for each module only contains input, the necessary code, output, and operating system tools. & \url{https://www.docker.com/} \\ \hline
+		mysql SCI database & Input into first module & \url{link not available} \\ \hline
+		mysql server, mysql client & hosting + querying of SCI database & \url{http://dev.mysql.com/} \\ \hline
+		GNUMake & orchestration of modules (i.e. the command ‘make thesis’ runs each module that hasn’t been run, making sure to do so in the correct order & \url{https://www.gnu.org/software/make/} \\ \hline
+		nodeJS, sh, bash, zsh & orchestration of modules (i.e. the command ‘make thesis’ runs each module that hasn’t been run, making sure to do so in the correct order & \url{https://nodejs.org/en/}, \url{https://www.gnu.org/software/bash/} \\ \hline
+		VirtualBox & running docker daemon via boot2docker (Linux VM) & \url{https://www.virtualbox.org/} \\ \hline
+		Atom, vi, nano & code editors & \url{https://atom.io/}, \url{http://www.vim.org/}, \url{http://www.nano-editor.org/} \\ \hline
+		mallet & indexing of files in preparation for LDA; Gibbs Sampling to infer parameters of LDA topic model & \url{http://mallet.cs.umass.edu/} \\ \hline
+		Mac OS-X & Host system running VM, hosting code & \url{http://www.apple.com/osx/} \\ \hline
+		Bitbucket & code hosting & \url{https://bitbucket.org/} \\ \hline
+		GitHub & code hosting location of open-source tools used in the project including nodeJS and mallet & \url{https://github.com/} \\ \hline
+		less, more, cat, wc,  grep, egrep, z, oh-my-zsh & general modification or searching of files in *nix & \url{https://en.wikipedia.org/wiki/Less_(Unix)}, \url{http://linux.die.net/man/1/more}, \url{http://linux.die.net/man/1/grep}, \url{http://linux.die.net/man/1/egrep}, \url{http://linux.die.net/man/1/wc}, \url{https://github.com/rupa/z}, \url{https://github.com/robbyrussell/oh-my-zsh} \\ \hline
+		regular expressions & easy removal of boiler plate HTML from documents & \url{https://en.wikipedia.org/wiki/Regular_expression} \\ \hline
+		npm & hosting of open-source code used in nodeJS & \url{https://www.npmjs.com/} \\ \hline
+		\hline
+	\end{tabular}
+\end{center}

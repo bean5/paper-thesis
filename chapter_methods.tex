@@ -1,14 +1,9 @@
-\chapter{Methodology} \label{chp:chapter2}
+\chapter{Methodology} \label{chp:methodology}
 
 \section{Overview}
-Docker has quickly become that. This thesis is one evidenced of its growing popularity. % TODO: Move to methodology section.
+I combined the methods used by \citeyearpar{hall-jurafsky-manning:2008:EMNLP} and \citeyearpar{Krstovski2013efficient} to the \emph{CLDSGCT}. I then compared performance to that of an \emph{TF-IDF} model using some of the metrics outlined by \citeyearpar{Ge:2010:BAE:1864708.1864761} along with an \emph{nDCG} similarity measure. This involves comparing an LDA-based recommendation system to an off-the-shelf \emph{TF-IDF} recommendation system. Both systems will be parameterized such that they provide the top 5 recommendations for each document. I will use Collapsed Gibbs Sampling to induce parameters for an LDA (topic) model, then feed this output into a k-NN algorithm (k = 5). For k-NN's distance metric, I will use Hellinger distance. The 5 nearest neighbors will then be sorted from nearest neighbor to farthest. This is the output that will be compared to the top 5 results for each document \emph{TF-IDF} system.
 
-TODO: Mention why only catalog coverage is used.
-
-I combined the methods used by \citeyearpar{hall-jurafsky-manning:2008:EMNLP} %Hall et al. (2008)
-and \citeyearpar{Krstovski2013efficient} %Krstovski (2013)
-to the \emph{CLDSGCT}. I then compared performance to that of an \emph{TF-IDF} model using some of the metrics outlined by \citeyearpar{Ge:2010:BAE:1864708.1864761} %Ge et al. (2010)
-along with an \emph{nDCG} similarity measure. This involves comparing an LDA-based recommendation system to an off-the-shelf \emph{TF-IDF} recommendation system. Both systems will be parameterized such that they provide the top 5 recommendations for each document. I will use Collapsed Gibbs Sampling to induce parameters for an LDA (topic) model, then feed this output into a k-NN algorithm (k = 5). For k-NN’s distance metric, I will use Hellinger distance. The 5 nearest neighbors will then be sorted from nearest neighbor to farthest. This is the output that will be compared to the top 5 results for each document \emph{TF-IDF} system.
+%The performance of \emph{RelRec} versus the \emph{TF-IDF} system will be measured across 1 metric as described by \cite{Ge:2010:BAE:1864708.1864761}: \emph{catalog coverage}. Although other metrics such as \emph{similarity} or \emph{serendipity} would be interesting \citep{Ge:2010:BAE:1864708.1864761}, they are not possible here because no baseline exists to which the systems may be compared. % of which is a benchmark while the other two are comparative. The metrics will measure similarity, serendipity, and coverage. Based on the 1 benchmark, coverage, I will conclude which system is best. The similarity metric is meant to lend credence to either method, assuming that (1) the other is a well-accepted recommendation method and (2) the similarity level is high.
 
 The dataset contains the same documents as those used by Mark Davies in his Corpus of LDS General Conference talks available at http://corpus.byu.edu/gc/. The authorship dates for these talks are ranges of either 1846-1886 or 1942-2013. They total over 1400 talks. Some were extemporaneously given while others were scripted. The intended audience is generally only either the male members of the church, female members of the church, or the entire church. The size and the extent of internationality of the audience is increasing over time. The LDS church currently has over 15 million members, with the majority outside the United States.
 
@@ -26,9 +21,16 @@ In order to be able to reproduce, share, and track work performed in the process
 
 In this section, methodology will be described, starting with code management \& organization, then tools used (programming languages, CLI tools, operating systems, libraries, databases), followed by models, algorithms \& metrics, concluding with metrics. In Figure \ref{fig:entire_process}, the steps (or modules) of the experiment are shown.
 
+Many open-source tools and many programming languages were used in this project. For readers interested in an nearly exhaustive list of these technologies and projects, please see Appendix ~\ref{tools+links} which lists them.
+
+For this project I used offline testing (i.e. evaluation of offline algorithms), which has been frequently used in the past. % TODO: Explain why.
+
+%Docker has quickly become that. This thesis is one evidenced of its growing popularity. %TODO: Mention why only catalog coverage is used.
+
+
 \begin{figure}[hhhhhtb]
 	\centering
-		\includegraphics[width=7.5in,natwidth=810,natheight=942]{figures/entire_process.png}
+		%\includegraphics[width=7.5in,natwidth=810,natheight=942]{figures/entire_process.png}
 		\caption[Entire Process]{
 			Experiment Process\\
 			The entire process for the thesis experiment outlined as `modules'. When modules are horizontally adjacent, they may be done in parallel. Note that further parallelization is possible, but not shown. Modules that are higher on the diagram are performed before lower ones.
@@ -39,9 +41,9 @@ In this section, methodology will be described, starting with code management \&
 \section{Code Management + Organization}
 For the experiment to be robust, it is important that it can be replicated and compared. One of the best ways to allow for this is to make the code both configurable and sharable. Thus, this section is included.
 
-I versioned the experiment’s code in a git project along with data during the gathering process. Whenever a step completes, it outputs data which can be used as input to other modules. The code is modularized such that each docker target corresponds with a module shown previously. The docker daemon builds each target open request (as directed by make), and using docker-compose, directories are connected to the image as volumes. This allows the image to be both modular and systematic. Each docker target has a corresponding file called Dockerfile. Each Dockerfile instructs the docker daemon to obtain requisite packages, e.g. nodeJS, for the module to run the code specific to it. When the code is complete, the docker container terminates, and the next may run when Make instructs it to do so.
+I versioned the experiment's code in a git project along with data during the gathering process. Whenever a step completes, it outputs data which can be used as input to other modules. The code is modularized such that each docker target corresponds with a module shown previously. The docker daemon builds each target open request (as directed by make), and using docker-compose, directories are connected to the image as volumes. This allows the image to be both modular and systematic. Each docker target has a corresponding file called Dockerfile. Each Dockerfile instructs the docker daemon to obtain requisite packages, e.g. nodeJS, for the module to run the code specific to it. When the code is complete, the docker container terminates, and the next may run when Make instructs it to do so.
 
-Viewing each docker container as a module lends to be seen as a part of the algorithm. Naturally, to each container I map an input and output folder, both located at the root of the file system. The output of multiple containers can be combined as input to subsequent ones, which was sometimes the case here. The first module’s input was actually the database graciously provided by Dr. Steven Liddle, containing pre-downloaded documents to jump-start the project.
+Viewing each docker container as a module lends to be seen as a part of the algorithm. Naturally, to each container I map an input and output folder, both located at the root of the file system. The output of multiple containers can be combined as input to subsequent ones, which was sometimes the case here. The first module's input was actually the database graciously provided by Dr. Steven Liddle, containing pre-downloaded documents to jump-start the project.
 
 I named each docker target logically so upon querying the docker daemon for the list of images, each image would be easy to re-run:
 
@@ -53,16 +55,18 @@ I named each docker target logically so upon querying the docker daemon for the 
 \end{enumerate}
 
 \subsection{Tools, Libraries, OS, Database}
-I used various tools in the process of carrying for the preparation and execution of this thesis’ experiment. Table A.1 in the appendix details what they are and what they were used to do.
+I used various tools in the process of carrying for the preparation and execution of this thesis' experiment. Table A.1 in the appendix details what they are and what they were used to do.
 
 Core to this project was the use docker. Choosing to use docker forced me to code in all dependencies of each module either as code in the module, or as packages to be installed to each individual docker container during the docker build process. Indeed, the docker daemon builds containers by following instructions given in the files called Dockerfile. This makes each step of the experiment self-documenting. Another benefit of this is that it makes the code cloud-deployable, making it possible to easily offload work to the cloud when appropriate. Offloading to the cloud was not necessary here since I had sufficient computing resources for the project already purchased.
 
 \subsection{Models, Algorithms \& Metrics}
 Choice of algorithm \& metrics go hand-in-hand. In fact, algorithm and data can often influence each other, further influencing the selection of metrics. For example, if I were to have a gold standard or baseline of recommendation engines for the 5000+ documents used in this project, I would be able to use nDCG as a metric. Since I do not have such a baseline, such a metric cannot be used. Per xyz, I use catalog coverage, allowing the comparison of two non-baseline algorithms.
 
-Choosing the algorithms for this project was not difficult. I selected \emph{TF-IDF}+kNN and LDA+kNN as my main topic-modeling algorithms. \emph{TF-IDF} is straight-forward to understand and code. LDA is more difficult to code and is actually a topic model. Luckily, open-source projects exist where an algorithm is already provided, which I quickly opted to use.
+Choosing the algorithms for this project was not difficult. I selected \emph{TF-IDF}+k-NN and LDA+k-NN as my main topic-modeling algorithms. \emph{TF-IDF} is straight-forward to understand and code. LDA is more difficult to code and is actually a topic model. Luckily, open-source projects exist where an algorithm is already provided, which I quickly opted to use.
 
-Given that I had prior experience using Gibbs Sampling to generate LDA models \citep{bean5-LDA-ToT} the choice to select that algorithm was logistical (optimizing to permit me more time to focus on other areas of this work). EM lends itself to parallelization, but on my dataset, I knew that Gibbs Sampling would only take about 10 minutes to run, which is not an issue. The cost-benefit of changing algorithms was too high, at least when it comes to building the LDA model via parallelized algorithm. In my case, I used the mallet toolbox \citep{McCallumMALLET} (TODO: cite previously) which provides the Gibbs Sampling algorithm to infer parameters of the the LDA model.
+Given that I had prior experience using Collapsed Gibbs Sampling to generate LDA models \citep{bean5-LDA-ToT} the choice to select that algorithm was logistical (optimizing to permit me more time to focus on other areas of this work). EM lends itself to parallelization, but on my dataset, I knew that Collapsed Gibbs Sampling would only take about 10 minutes to run, which is not an issue. The cost of changing algorithms was too high, at least when it comes to building the LDA model via some parallelized algorithm. In my case, I used the mallet toolkit \citep{McCallumMALLET}, open-source packages written in Java. Mallet provides the Collapsed Gibbs Sampling algorithm to infer parameters of the the LDA model as well as tools to index and prepare the data for use by Mallet.
+
+% TODO: explain why hierarchical LDA wasn't used. Not just logistical to choose LDA, but because deeper structures didn't seem to lend themselves to RS in my mind--at least not immediately.
 
 % TODO: Double check whether Jenson-Shannon was used (check prospectus).
 % TODO: Add more algorithm notes here and move this table to a better location.
@@ -90,11 +94,13 @@ Given that I had prior experience using Gibbs Sampling to generate LDA models \c
 \end{center}
 
 % TODO: \cite instead of link?
-The core of this project came down to organization, good testing (to ensure bug-free code), and study of any tools that would end up being helpful in processing. kNN is a machine learning algorithm which as input requires the value for k and a selection of a distance metric. The output of \emph{TF-IDF} and LDA are both in vectors, but LDA’s vectors lay within the probability simplex. Distance metrics had to be appropriate for the space. For \emph{TF-IDF} vectors, I opted to use cosine similarity; for LDA, Jensen-Shannon (\url{https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence, http://maroo.cs.umass.edu/pub/web/getpdf.php?id=1101}). % TODO: (or was it Hellinger? \url{https://www.quora.com/How-can-I-compute-the-Hellinger-distance-between-documents-based-on-topic-proportions-generated-by-Latent-Dirichlet-Allocation}).
+The core of this project came down to organization, good testing (to ensure bug-free code), and study of any tools that would end up being helpful in processing. k-NN is a machine learning algorithm which as input requires the value for \textit{k} and a distance metric. The output of \emph{TF-IDF} and \textit{LDA} are both in vectors, but LDA's vectors lay within the probability simplex. Distance metrics had to be appropriate for the space. For \emph{TF-IDF} vectors, I opted to use cosine similarity; for LDA, Jensen-Shannon.
+% https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence, http://maroo.cs.umass.edu/pub/web/getpdf.php?id=1101.
+% TODO: or was it Hellinger: https://www.quora.com/How-can-I-compute-the-Hellinger-distance-between-documents-based-on-topic-proportions-generated-by-Latent-Dirichlet-Allocation.
 
-To evaluate the recommendations provided as output from the ordered kNN results, a common metric had to be employed. I chose to measure the goodness of each set using the catalog coverage metric. % TODO: remove passive voice here.
+To evaluate the recommendations provided as output from the ordered k-NN results, a common metric had to be employed. I chose to measure the goodness of each set using the catalog coverage metric.
 
-For reproducibility, the following table shows the values, settings, and configurations selected for the algorithms.
+For reproducibility, the following table shows the values, settings, and configurations I selected for the algorithms.
 
 By using the aforementioned metrics, this study aims to prove the following hypothesis
 	\begin{quote}
@@ -102,3 +108,5 @@ By using the aforementioned metrics, this study aims to prove the following hypo
 
 		%$H_{2}:$ \emph{RelRec} is more intuitive than emph recommendation systems since it has greater ability to disambiguate word sense by topic.
 	\end{quote}
+
+I hoped to use the formulas as provided and described by \cite{Ge:2010:BAE: 1864708.1864761}, but measuring serendipity was not possible for use because no baseline exists for \textit{CLDSGCT}.

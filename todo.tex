@@ -1,0 +1,70 @@
+Finish writing the parts of the paper Wendy is helping with online.
+Move it into here, but as a different branch, leaving this here.
+Double-check it compiles fine.
+Consider using ShareLaTeX for following sections.
+Start next sections.
+
+%http://tex.stackexchange.com/questions/102532/citealt-putting-parentheses-in-citation-inappropriately
+%\renewcommand{\citealt}{(\citealt)}
+
+% TODO: Publish online and link to it
+%@unpublished{beanOtherWork,
+%	author = "Bean, Michael",
+%	title = "",
+%	url = "",
+%	year = 201x
+%}
+
+%[You have probably heard that the amount of digital data is increasing at alarming rates each year. It is difficult to pin down the actual rate. BBC says ``Some say that about 90\% of all the data in the world today has been created in the past few years...According to computer giant IBM, 2.5 exabytes - that's 2.5 billion gigabytes (GB) - of data was generated every day in 2012. That's big by anyone's standards. ‘About 75\% of data is unstructured, coming from sources such as text, voice and video,’ says Mr Miles.'' I worked for a while at a company that stores backups of data. The amount of data they were storing reached 20 PB!]
+
+%With so much digital data, much of which is unstructured, it becomes necessary to assist users of data to sift through and learn from data leveraging computers to perform some of the tasks. One way to expose data is to allow users to search via query. Another way is by recommendation. In this thesis, I compare two recommendation systems and systematically select the best for use on the (unstructured) textual data I have, in preparation for potential enhancements to the website \url{http://scriptures.byu.edu} (hereafter, \emph{LDS Scripture Citation Index}, or simply \emph{LDS SCI}).
+
+*****
+
+%Word sense disambiguation was not used either, but WordNet synsets were used \(citealt{wordnet_1998}). The corpus was religious in nature. Some of the documents had been translated manually, which probably introduced a significant amount of noise. Like the work of Hilton III, Bean’s work could probably have benefited from the use of LDA or word sense disambiguation.
+
+
+****
+
+If users do not know what to search for or don't know what words to use in the query, query search can lead to inconclusive findings, irrelevant results, or in extreme cases no (relevant) results.
+
+
+
+Now more than ever, people have access to large amounts of data that would be difficult to comprehend and process on their own.  As the amount of data increases, the number of possible connections grows exponentially. Thankfully, our ability to process data and to present it in intuitive, helpful ways using computational methods has also increased to meet the rising need. Computers can pre-process and automate the creation of connections. Moreover, computers can often make these connections automatically. % and with less bias than can humans. *Find a paper to support this statement*
+
+One example of such an innovations is a publicly available system (http://scriptures.byu.edu/mapscrip/), which allows users to interact with maps while reading the Holy Bible and other religious texts. This alleviates the task of remembering where events are supposedly taking place in geographical space, allowing users to more easily assimilate data, make connections, and glean information. There are many other similar tasks that computers can perform that aide the end-user including text mining recommendation systems which will be used here.  %\footnote {In Computer Science, \emph{data} can be redundant while \emph{information} is a non-redundant form}.
+
+A common task for users of these websites is to assimilate data, make connections between discourses and scriptural passages, and make other connections. Scriptures.byu.edu alleviates a portion of this task by providing an easy-to-use scripture citation index while LDS.org provides users the ability to navigate through the dataset by topic, given a year. Recently LDS.org provides users the ability to search by topic, but restricts results by speaker or by year. Both websites provide Lucene-like search capabilities, but neither provides a fully-automated recommendation system so finding a talk that is similar to another would be difficult and time-consuming. A recommendation system or topical index for \emph{CLDSGCT} is a often requested feature of scriptures.byu.edu.
+
+[Something here about Dr. Liddle's website and phone apps. This is a well-anticipated feature because this would provide users another way to explore and discover documents related to their current interests, given a starting document.]
+
+The system is intuitive because it only takes into account the topic content of each document by using a Gibbs-Sampled-Inferred LDA model, k-NN (usually with \textit{k}=5) to locate related documents makes the system intuitive. While other recommendation systems would be difficult to describe, our system can be described simply: Documents are considered most relevant if they rank among the 5 nearest neighbors, where ``nearest'' means that they share a similar distribution of topics. %``The following 5 documents are recommended because they match share similar topics with this one.''
+
+
+Furthermore, we compare output of \textit{\emph{RelRec}} with that of a well-accepted \emph{TF-IDF} recommendation system. This lends credibility to the results and show that either system would be fit for use in these systems. \textit{\emph{RelRec}} does/doesn't\footnote{Research has not yet been completed.} outperform the \emph{TF-IDF} system in terms of coverage and serendipity, making it robust and preferable. %xyz possibly add later: Additionally, leveraging some of the output provided as a result of Gibb-Sampled LDA, we are able to further divide the dataset into 2 sets: first half of documents and second half of documents. We do this because venue entropy (average annual entropy) was growing over time. The first half is low entropy documents and are constituted of the documents for the first half of the chronological years for which we have documents. High entropy documents, subsequently, are constituted of the restant documents. We compare how the two recommendation systems work, lending insight into the robustness of the two methods against changes in entropy. In other words, we show that no matter the entropy, their performance is similar.
+
+
+
+\subsection {Overview}
+In Chapter \ref{lit-review}, we start by describing the current state of computational methods broadly, then narrow our focus to the work most relevant related work. In Chapter \ref{methods-resources} we detail the resources and methods used to build \emph{RelRec}, a novel recommendation system, and compare it to a run-of-the-mill freely available emph system.
+
+
+
+Revise this:
+Recommendation systems are becoming more widely used and apparent in society, especially in commerce. It would not be surprising to be able to show that they are not as widely used (at least publicly) in systems that are less financially-backed. Although we leave for future research, it is of note that this work is most comparative to both LDS.org and scriptures.byu.edu since their use subsets of the same dataset. These systems provide users the ability search for documents based on keywords, but currently do not have the ability for users to discover documents based on similarity with other documents. This work aims to alleviate that in scriptures.byu.edu, thus providing users another way to explore and discover documents related to their current interests, given some starting document. We call our system \emph{RelRec}, and the fact that it uses only LDA and k-NN to locate related documents allows the system to be intuitive and easy to implement, given the tool sets such as Mallet and Weka. While results from other recommendation systems like that of Amazon might be difficult to describe to a lay-person, results from our system can be described simply: The following 5 documents are similar to this one because they have similar topics.
+
+
+
+
+
+Even the slowest techniques can yield good matches. However, when a user does not know what to search for, this can be a horrible way to find relevant results/documents. Luckily, \emph{search} is only one side of the coin. The flip-side is \emph{discovery}. Discovery is when a user doesn't know what to look for, but is willing to explore connections by navigating through documents, perhaps by starting at one document, then by viewing related documents. This is iterative, and can be re-iterative inasmuch as the user is allowed to restart the process at a different document. This sounds like it is prone to error, and it can be. Knowing the ins and outs of various recommendation systems, therefore, becomes critical to having a clean, robust solution, scalable solution, fit for use in both the short-term and the long-term.
+
+\subsection {Methods and Evaluation Overview}
+Sometimes a user has a document as a starting point and wishes to find related documents, but one doesn't exist. This is sometimes a good thing. For example, during the review of patent applications, trained personnel attempt to find related accepted patents that would be infringed by the proposed one. If a similar patent is found, the proposed one must be denied. However, if none are found, the patent can be accepted. In this case, the entity which proposed the patent now has rights to the patent. Not finding a related document is great in this case (for the applicant). Nevertheless, the patent process can be expensive, so before applying, preliminary searches are made. But if it is to save money, the system needs to be \emph{reliable}.
+
+
+xyz optional describe Pera's work \shortcite{Pera:2013:RNM:2507157.2507181}
+
+\section {Broad Overview of the State of Computational Linguistics}
+\subsection {Increasingly Popular (Computer-aided) Computation}
+Computational analysis on textual corpora are becoming more popular, and perhaps more critical to learning from datasets. The study of literature traditionally involves careful study of each document as well as careful comparison to previous/concurrent/future works. Recently, entire conferences have been devoted to only statistical analysis documents. Of course, statistical methods have existed for a long time, but the increasing availability of modern computing has allowed previously untapped data (because of size or what-not) to finally be tapped. Questions that were previously infeasible to answer are now easily computed within minutes.
