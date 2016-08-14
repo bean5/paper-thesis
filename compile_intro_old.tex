@@ -6,9 +6,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Setup BYU thesis format
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{csquotes} % This was added by Michael Bean
+
 \usepackage{byustyle}
 % Setup the byu style sheet
-\byustylesetup{%
+\byustylesetup{
     %
     %isdissertation = true,            % Uncomment this if you're doing a PhD dissertation
     %etdsubmission = true,            % Uncomment this if you're compiling it for ETD submission
@@ -63,7 +65,7 @@
 % For more info, see:
 % http://www.geocities.com/kijoo2000/latex2pdf.pdf
 % http://www.tug.org/applications/hyperref/manual.html
-\usepackage[backref,pagebackref,plainpages=false,driverfallback=dvipdfm]{hyperref}
+\usepackage[backref,pagebackref,hidelinks,plainpages=false,driverfallback=dvipdfm]{hyperref}
 \hypersetup{
     %bookmarks    = true, % Make bookmarks (default=true). This option
                           %cannot be used after package has been loaded,
@@ -75,13 +77,13 @@
                           % the links (false).
 % NOTE: if you need to use a dvi->ps->pdf path for things like PSTricks, you
 % may find that commenting out the next line is necessary.
-    pdfborder    = 001,   % sets the default for pdf links
+    %pdfborder    = 001,   % sets the default for pdf links
     pdfstartview = {FitH}, % Set the startup page view. Possible options are:
                            % FitH: Fit whole width of page
                            % FitV: Fit whole height of page
-                           % FitB: Fit whole �Bounding Box� page
-                           % FitBH: Fit whole width of �Bounding Box� of page
-                           % FitBV: Fit whole height of �Bounding Box� of page
+                           % FitB: Fit whole Bounding Box page
+                           % FitBH: Fit whole width of Bounding Box of page
+                           % FitBV: Fit whole height of Bounding Box of page
     bookmarksnumbered  = true, % Put section numbers in bookmarks (default=false)
     bookmarksopen      = true, % Open up the bookmark trees (default=false).
     bookmarksopenlevel = 1, % Level to which bookmarks are open (default=\maxdimen).
@@ -164,7 +166,7 @@
 
 
 %%%%%%%%%%%%% begin Bibliography %%%%%%%%%%%%%%%%%
-\phantomsection %Forces a new section prior to setting the bibliography reference point
+%\phantomsection %Forces a new section prior to setting the bibliography reference point
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{plainnat}
 \bibliography{refs}
@@ -185,7 +187,8 @@
 % each appendix should be a file with a .tex extension and the text
 % of the file should begin with \appendix{Appendix Title}, followed
 % by the contents of the appendix
-\include{appendixa}
+%\include{appendixa}
+%\include{appendixb}
 
 %End the document
 \end{document}

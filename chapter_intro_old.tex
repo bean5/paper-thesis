@@ -1,4 +1,4 @@
-\chapter{Introduction}
+\chapter{Introduction} \label{chp:introduction}
 
 The Church of Jesus Christ of Latter-day Saints (\emph{LDS church} or \emph{LDS}) produces counsel and guidance in many forms, including text. The amount of counsel available to its members grows at least every 6 months when a General Conference is held. Naturally, the Corpus of LDS General Conference talks (\emph{CLDSGCT}) increases in size bi-annually \citep{davies:gc}. Currently, it consists of over 1400 talks. This is a problem for members of the \emph{LDS church} (hereafter, \emph{Mormons}) because, even at a young age, they are admonished to study from these General Conference (\emph{GC}) talks \citep{childrens_songbook}.
 
@@ -12,19 +12,13 @@ This thesis compares 2 recommendation system for GC talks. The better of the two
 
 \emph{RelRec} leverages inferred topical content when computing distances between documents. A side benefit of the system is that intermediate output can be used to provide a topical index in any website that uses GC talks. The parameters of the the topic model will be inferred via \emph{(Collapsed) Gibbs Sampling} \citep{Porteous:2008:FCG:1401890.1401960}, although \emph{Variation Inference} could be used as well \citep{blei2006variational}. \emph{RelRec} will be an LDA + k-NN system, trained for GC talks. \textit{Since no recommendation system exists in this domain, it represents a novel application.} In order to maintain a streamlined experience for website end-users, I will use offline forms of clustering and ranking. I will compare the performance of this system with that of an off-the-shelf \emph{TF-IDF} recommendation system, which represents a recognized baseline.
 
-Since \emph{TF-IDF} makes no effort to differentiate between word senses and homographs, I hypothesize that \emph{RelRec} will outperform \emph{TF-IDF} since token-topic assignments assigned by Collapsed Gibbs Sampling can be seen as a form of disambiguation.
-
-The performance of \emph{RelRec} versus the \emph{TF-IDF} system will be measured across 1 metric as described by \cite{Ge:2010:BAE:1864708.1864761}: \emph{catalog coverage}. Although other metrics such as \emph{similarity} or \emph{serendipity} would be interesting \citep{Ge:2010:BAE:1864708.1864761}, they are not possible here because no baseline exists to which the systems may be compared. % of which is a benchmark while the other two are comparative. The metrics will measure similarity, serendipity, and coverage. Based on the 1 benchmark, coverage, I will conclude which system is best. The similarity metric is meant to lend credence to either method, assuming that (1) the other is a well-accepted recommendation method and (2) the similarity level is high.
-
-
-Before proceeding, I wish to preface that I endeavor to provide URL hyperlinks whenever possible so the reader can easily replicate this work. This is fitting since this work aims to enhance the web community in particular.
 
 \section{About LDS Scripture Citation Index (SCI)}
 \emph{LDS SCI} is available both on the web and on mobile devices. All forms have a search feature which utilizes a Lucene \citep{lucene:luke} back-end search which employs a \emph{TF-IDF} algorithm for ranking search matches for any query. Since the data made accessible by \emph{LDS SCI} is indexed and cataloged, it has some metadata which can be used as criteria in the filter, such as year, speaker or venue (e.g. General Conference).
 
 \begin{figure}[hhhhhtb]
 	\centering
-		\includegraphics[width=3.5in,natwidth=310,natheight=442]{figures/sci_search.png}
+		%\includegraphics[width=3.5in,natwidth=310,natheight=442]{figures/sci_search.png}
 		\caption[SCI \emph{TF-IDF} Search Results]{
 			Samples results of a search provided to SCI Lucene search engine.
 		}
@@ -35,63 +29,10 @@ Providing search capabilities is just one way \emph{LDS SCI} exposes their index
 
 \emph{LDS SCI} is similar to \url{LDS.org} in that users can use them to read both scriptures and discourses. However, \emph{LDS SCI} exposes discourses pre-dating 1971, including those published in the Journal of Discourses in the 1800’s. \url{LDS.org} focuses on those published after 1971. The \emph{LDS SCI} team has already created a geographically-linked version of scriptures \url{http://scriptures.byu.edu/mapscrip/} which allows users to read scriptures (Biblical and non-biblical) and see a Google Earth view of the related area(s) on a per-chapter basis. No recommendation system exists in its interface and no index of locations is exposed directly in the user interface.
 
-\section{Motivation}
-While the \emph{LDS SCI} is helpful for the aspiring erudite of LDS content, there is currently no recommendation system for the discourses: when a user finds an interesting discourse, there is no quick, simple way to find similar/related discourse. Although the LDS website has some modern GC discourses tagged with topics, such topics are currently provided on a per-year basis only, so the discourses tagged with each topic tend to be sparse. This works when members of the LDS church want to focus on the most recent discourses only. Even with URL manipulation, attempts to expose topics for all GC discourses rather than by year do not work (\url{https://www.lds.org/general-conference/topics/2015/10} vs. \url{https://www.lds.org/general-conference/topics/})--and result in the topic index for the most recent session of GC. Sparseness for the discourses in a given topic are apparent in Figure \ref{fig:oct_2015_topics}--most topics only have 1 associated discourse and therefore have no number next to the topic’s title.
 
-\begin{figure}[hhhhhtb]
-	\centering
-		\includegraphics[width=4.5in,natwidth=410,natheight=542]{figures/oct_2015_topics.png}
-		\caption[\url{LDS.org} 2015 Topics]{
-			\url{LDS.org} 2015 Topics
-		}
-	\label{fig:oct_2015_topics}
-\end{figure}
-
-Therefore, for users of \url{LDS.org}, when a reader enjoys a particular discourse, it is difficult to locate all discourses on a given topic. It is theoretically possible to peruse every session of GC (as far back as 1971) looking for the topic in every year. The task requires a lot of clicking and will not work for discourses published before 1971 since they are not exposed online at \url{LDS.org}.
-
-Beyond the per-year topic index provided by \url{LDS.org}, \url{LDS.org} does have a Gospel Topics index at \url{https://www.lds.org/topics/}. Under some topics, there are discourses that are selected for the topic, but they don’t promise to be results of a recommendation system that is routinely updated--and expanding the lists to see more is not possible.
-
-\emph{LDS SCI} has discourses by topic, but was manually created and only accounts for discourses in the Journal of Discourses, which were published in the 1800’s. For those interested, digital images of the Journal of Discourses are available from the BYU online collections at \url{http://contentdm.lib.byu.edu/cdm/search/collection/JournalOfDiscourses3}.
-
-To review, \url{LDS.org} has 2 topic indexes, one of which focuses on a per-year approach for post-1971 GC talks, the other of which appears to have been manually created. \emph{LDS SCI} has a topic index, but only for very early discourses. For a superficial study of a topic, this might be sufficient, but when one wants to reach farther than the most recent or least LDS materials--namely those in the middle--there is no search engine--and none which promises to be automatic, automatically updated, and interactive.
-
-In the past 2 years, the query engine provided by both \url{LDS.org} and \emph{LDS SCI} have been enhanced significantly, but they still leave something to be desired: simplicity and ease of use. Dr. Liddle who built \emph{LDS SCI} has said that \emph{LDS SCI} uses a Lucene query engine, which employs a \emph{TF-IDF} search algorithm. The \url{LDS.org} engine seems to work similarly, except that it can detect phrases such as ``in talks'' and use those to automatically select to search only through discourses rather than through all LDS written materials exposed online. %[...more on how LDS SCI search engine works...]
-
-Take for example the search query ``word of wisdom'' (without quotes in the search). This is a phrase which is more recent history of the LDS church has come to refer to a law of health. The search results look promising (shown in Figure \ref{fig:sci_results}).
-
-\begin{figure}[hhhhhtb]
-	\centering
-		\includegraphics[width=3.5in,natwidth=310,natheight=442]{figures/sci_results.png}
-		\caption[Top SCI Query Results for the search \textit{Word of Wisdom}]{
-
-		}
-	\label{fig:sci_results}
-\end{figure}
-
-But one would expect to see something by Joseph Smith Jr. to rank at the top. The confounding factor here is that ``word of wisdom'' is a modern naming convention. % TODO: Fact check this!
-The word of wisdom was ``[r]evelation given through Joseph Smith the Prophet, at Kirtland, Ohio, February 27, 1833.'' (D\&C 89 Header). The earliest usage of the phrase ``word of wisdom'' in print we could find is 1873--40 years after it was revealed. (TODO: \cite The Word of Wisdom—Education by President George A. Smith).
-
-Unfortunately, without a way to determine what topics exist within all the GC discourses, there is no way for a query system to expand queries like this one. Unfortunately, even if the user does happen to find a discourse that is a pleasing match to the query, there is currently no recommendation system from that point to suggest other related discourses--just existing links and the other results for the query.
-
-If the user were to filter to only scriptures, they would find more than 20k matches as shown in Figure \ref{fig:sci_results_20k}.
-
-\begin{figure}[hhhhhtb]
-	\centering
-		\includegraphics[width=3.5in,natwidth=310,natheight=442]{figures/sci_results_20k.png}
-		\caption[20k+ SCI Results]{
-
-		}
-	\label{fig:sci_results_20k}
-\end{figure}
-
-Of those, the first one that refers to directly to a law of health is the 4th result. \url{LDS.org}, when performing the same search ranks the result referring to the law of health as the 4th result (\url{https://www.lds.org/scriptures/search?type=verse&query=word+of+wisdom}), but does so with only 39 total results. These are results that I was able to find because I understood how the search engine works. When one doesn’t know when to put quotes or doesn’t know what they are looking for, the task is more difficult, depending on the engine used. For example, when the entire query is run with quotes around it in \emph{LDS SCI}, the number of results drops from the 20k down to 7 in \emph{LDS SCI}; in \url{LDS.org}, from 39 to 8 (\url{https://www.lds.org/scriptures/search?type=verse&query="word+of+wisdom"}). Search relevance is an entire area of research and it is no wonder that companies that are able to do well in this area are able to profit from it (e.g. Microsoft with \url{https://bing.com} and Google with \url{https://google.com}). Query systems are a natural way to 'ask' a computer questions and receive results, but are obviously lacking in features.
-
-While search query optimization would be one way to improve this area, I chose to augment the \emph{LDS SCI} toolset with recommendation features. The idea was that once a reader locates a discourse of interest, a user should be able to quickly locate similar discourses by viewing a pre-computed list of related/similar documents as a list. The list could default to displaying 5 results, but the user could interact with the list and request additional results. %There are many ways to approach this that I will explain.
 
 
 \section{Recommender Systems}
-
-[TODO: provide history of topic models]
 
 [TODO: provide history of topic models]
 
