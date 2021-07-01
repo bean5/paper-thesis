@@ -6,10 +6,10 @@ services:
     command: make all
     working_dir: /main
     volumes:
-      - './:/main'
+      - './whitepaper:/main'
   shell:
     build: docker/
     command: bash
     working_dir: /main
     volumes:
-      - './:/main'
+      - './whitepaper:/main'

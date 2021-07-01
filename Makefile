@@ -1,10 +1,13 @@
-.PHONY: build publish all prepTemp publishWithDate
+.PHONY: addMakeFile build publish all prepTemp publishWithDate
 
-build:
-	-(docker-compose build build && docker-compose run build)
+build: addMakeFile
+	docker-compose build build && docker-compose run build
 
-publish:
+publish: addMakeFile
 	make publishWithDate date="$$(date +'%Y-%m-%d')"
+
+addMakeFile:
+	cp Makefile whitepaper/
 
 publishWithDate:
 	@echo "Copying in build folder."
