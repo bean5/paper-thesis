@@ -7,9 +7,11 @@ services:
     working_dir: /main
     volumes:
       - './whitepaper:/main'
+      - './output:/output'
   shell:
     build: .
     command: bash
     working_dir: /main
     volumes:
       - './whitepaper:/main'
+      - './output:/output'

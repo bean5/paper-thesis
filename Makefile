@@ -10,9 +10,9 @@ addMakeFile:
 	cp Makefile whitepaper/
 
 publishWithDate:
-	@echo "Copying in build folder."
-	cp build/master.pdf build/master-LDS_SCI_Recommender_Systems-Michael_Bean\ $(date).pdf
-	cp build/literature_review.pdf build/literature_review-Michael_Bean\ $(date).pdf
+	@echo "Copying in output folder."
+	cp build/master.pdf /output/master-LDS_SCI_Recommender_Systems-Michael_Bean\ $(date).pdf
+	cp build/literature_review.pdf /output/literature_review-Michael_Bean\ $(date).pdf
 
 prepTemp:
 	mkdir /tmp/latex
@@ -30,6 +30,7 @@ all: prepTemp compile_master.tex refs.bib
 	make custom section=results
 	make custom section=conclusion
 	make custom section=future_work
+	cp master.pdf /output/
 
 custom:
 	cd /tmp/latex/ && \
