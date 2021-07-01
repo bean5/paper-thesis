@@ -2,13 +2,13 @@ version: '3'
 
 services:
   build:
-    build: docker/
+    build: .
     command: make all
     working_dir: /main
     volumes:
       - './whitepaper:/main'
   shell:
-    build: docker/
+    build: .
     command: bash
     working_dir: /main
     volumes:
