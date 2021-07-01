@@ -1,5 +1,5 @@
 # My Thesis
-Do not delete it, please. I don't have a brave little toaster to rescue it for me.
+My thesis. Actually, just the published paper for it. The actual code for the research is at <https://linguistics.byu.edu/thesisdata/relrec.html>. 
 
 Now commencing start of template README.
 
