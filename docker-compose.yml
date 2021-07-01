@@ -1,12 +1,15 @@
-build:
-  build: docker/
-  command: make all
-  working_dir: /main
-  volumes:
-    - './:/main'
-shell:
-  build: docker/
-  command: bash
-  working_dir: /main
-  volumes:
-    - './:/main'
+version: '3'
+
+services:
+  build:
+    build: docker/
+    command: make all
+    working_dir: /main
+    volumes:
+      - './:/main'
+  shell:
+    build: docker/
+    command: bash
+    working_dir: /main
+    volumes:
+      - './:/main'
